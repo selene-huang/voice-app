@@ -53,6 +53,10 @@ export const YellowText = styled.Text`
   color: ${Colors.yellow};
 `;
 
+export const LightPurpleText = styled.Text`
+  color: ${Colors.lightPurple};
+`;
+
 export const CenterText = styled.Text`
   text-align: center;
 `;
