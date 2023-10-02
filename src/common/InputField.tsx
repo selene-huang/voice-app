@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { KeyboardTypeOptions, StyleSheet } from 'react-native';
 import Colors from '../../assets/Colors';
 
 type InputFieldProps = {
   onChange: (text: string) => void;
   value: string;
   secureTextEntry?: boolean;
+  keyboardType?: KeyboardTypeOptions;
 };
 
 export default function InputField({
   onChange,
   value,
   secureTextEntry = false,
+  keyboardType = 'default',
 }: InputFieldProps) {
   const [isActive, setIsActive] = useState(false);
 
@@ -28,6 +30,7 @@ export default function InputField({
       secureTextEntry={secureTextEntry}
       autoCorrect={false}
       autoCapitalize="none"
+      keyboardType={keyboardType}
       returnKeyType="done"
     />
   );

@@ -37,7 +37,7 @@ export default function SignUpScreen() {
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>{'Welcome!'}</H1Heading>
+          <H1Heading>Welcome!</H1Heading>
         </HeadingContainer>
 
         <BodyText>Email</BodyText>

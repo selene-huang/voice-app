@@ -41,7 +41,7 @@ export default function LoginScreen() {
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>{'Welcome back!'}</H1Heading>
+          <H1Heading>Welcome back!</H1Heading>
         </HeadingContainer>
 
         <BodyText>Email</BodyText>
