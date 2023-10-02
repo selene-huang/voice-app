@@ -6,7 +6,7 @@ export const Title = styled.Text`
   font-style: normal;
   font-size: 42px;
   line-height: 56px;
-  color: ${Colors.black};
+  color: ${Colors.yellow};
 `;
 
 export const H1Heading = styled.Text`
@@ -14,7 +14,7 @@ export const H1Heading = styled.Text`
   font-style: normal;
   font-size: 34px;
   line-height: 46px;
-  color: ${Colors.black};
+  color: ${Colors.yellow};
 `;
 
 export const H2Heading = styled.Text`
@@ -22,7 +22,7 @@ export const H2Heading = styled.Text`
   font-style: normal;
   font-size: 21px;
   line-height: 28px;
-  color: ${Colors.black};
+  color: ${Colors.yellow};
 `;
 
 export const ButtonText = styled.Text`
@@ -30,7 +30,7 @@ export const ButtonText = styled.Text`
   font-style: normal;
   font-size: 18px;
   line-height: 24px;
-  color: ${Colors.black};
+  color: ${Colors.cream};
 `;
 
 export const BodyText = styled.Text`
@@ -38,7 +38,7 @@ export const BodyText = styled.Text`
   font-style: normal;
   font-size: 16px;
   line-height: 22px;
-  color: ${Colors.black};
+  color: ${Colors.cream};
 `;
 
 export const BodySubtext = styled.Text`
@@ -46,7 +46,7 @@ export const BodySubtext = styled.Text`
   font-style: normal;
   font-size: 14px;
   line-height: 20px;
-  color: ${Colors.black};
+  color: ${Colors.cream};
 `;
 
 export const YellowText = styled.Text`
