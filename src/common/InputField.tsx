@@ -37,8 +37,9 @@ const styles = StyleSheet.create({
   isInactive: {
     borderWidth: 2,
     height: 30,
-    paddingVertical: 8,
+    paddingVertical: 7,
     paddingHorizontal: 12,
+    marginTop: 5,
     marginBottom: 11,
     borderRadius: 7,
     borderColor: Colors.purple,
@@ -47,8 +48,9 @@ const styles = StyleSheet.create({
   isActive: {
     borderWidth: 2,
     height: 30,
-    paddingVertical: 8,
+    paddingVertical: 7,
     paddingHorizontal: 12,
+    marginTop: 5,
     marginBottom: 11,
     borderRadius: 7,
     borderColor: Colors.lightPurple,

@@ -6,6 +6,7 @@ import { StyleSheet, View } from 'react-native';
 import { H1Heading } from './assets/Fonts';
 import LandingScreen from './src/screens/auth/LandingScreen';
 import LoginScreen from './src/screens/auth/LoginScreen';
+import SignUpScreen from './src/screens/auth/SignUpScreen';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -55,7 +56,7 @@ export default function App() {
 
   return resourcesIsLoaded ? (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <LandingScreen />
+      <SignUpScreen />
     </View>
   ) : null;
 }
