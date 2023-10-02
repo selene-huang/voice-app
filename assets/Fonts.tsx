@@ -1,0 +1,58 @@
+import styled from 'styled-components/native';
+import Colors from './Colors';
+
+export const Title = styled.Text`
+  font-family: 'exo-semibold';
+  font-style: normal;
+  font-size: 42px;
+  line-height: 56px;
+  color: ${Colors.black};
+`;
+
+export const H1Heading = styled.Text`
+  font-family: 'exo-semibold';
+  font-style: normal;
+  font-size: 34px;
+  line-height: 46px;
+  color: ${Colors.black};
+`;
+
+export const H2Heading = styled.Text`
+  font-family: 'exo-semibold';
+  font-style: normal;
+  font-size: 21px;
+  line-height: 28px;
+  color: ${Colors.black};
+`;
+
+export const ButtonText = styled.Text`
+  font-family: 'dmsans-regular';
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: ${Colors.black};
+`;
+
+export const BodyText = styled.Text`
+  font-family: 'dmsans-regular';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${Colors.black};
+`;
+
+export const BodySubtext = styled.Text`
+  font-family: 'dmsans-regular';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: ${Colors.black};
+`;
+
+export const YellowText = styled.Text`
+  color: ${Colors.yellow};
+`;
+
+export const CenterText = styled.Text`
+  text-align: center;
+`;
