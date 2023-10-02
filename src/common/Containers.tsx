@@ -16,6 +16,19 @@ export const StartContainer = styled.View`
 
 export const HeadingContainer = styled.View`
   padding-vertical: 31px;
+  align-items: flex-start;
+  width: 100%;
+`;
+
+export const ScreenContainer = styled.View`
+  padding-horizontal: 47px;
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 34px;
 `;
 
 export const Row = styled.View`

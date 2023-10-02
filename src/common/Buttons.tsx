@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 import Colors from '../../assets/Colors';
-import { ButtonText, YellowText } from '../../assets/Fonts';
+import { BodyText, ButtonText, YellowText } from '../../assets/Fonts';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const ButtonBase = styled.TouchableOpacity`
   text-align: center;
@@ -16,15 +17,15 @@ const ButtonBase = styled.TouchableOpacity`
 
 const styles = StyleSheet.create({
   purpleBase: {
-    background: Colors.purple,
+    backgroundColor: Colors.purple,
     borderColor: Colors.purple,
   },
   greenBase: {
-    background: Colors.green,
+    backgroundColor: Colors.green,
     borderColor: Colors.green,
   },
   grayBase: {
-    background: Colors.darkGray,
+    backgroundColor: Colors.darkGray,
     borderColor: Colors.yellow,
   },
 });
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
 type ButtonProps = {
   onPress: () => void;
   text: string;
-  disabled: boolean;
+  disabled?: boolean;
 };
 
 export function PurpleButton({ onPress, text, disabled }: ButtonProps) {
@@ -58,5 +59,36 @@ export function GrayButton({ onPress, text, disabled }: ButtonProps) {
         <YellowText>{text}</YellowText>
       </ButtonText>
     </ButtonBase>
+  );
+}
+
+const BackButtonContainer = styled.View`
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
+const BackButtonBase = styled.TouchableOpacity`
+  text-align: center;
+  align-items: center;
+  padding: 9px 18px 9px 0px;
+  margin-vertical: 5px;
+  margin-horizontal: 24px;
+`;
+
+type BackButtonProps = {
+  navigation?: undefined;
+  // TODO: implement navigation and make prop required
+};
+
+export function BackButton({ navigation }: BackButtonProps) {
+  return (
+    <BackButtonContainer>
+      <BackButtonBase onPress={() => {}}>
+        <BodyText>
+          <Icon name="left" size={15} color={Colors.cream} /> Back
+        </BodyText>
+      </BackButtonBase>
+    </BackButtonContainer>
   );
 }

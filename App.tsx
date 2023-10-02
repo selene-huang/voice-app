@@ -4,6 +4,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { H1Heading } from './assets/Fonts';
+import LandingScreen from './src/screens/auth/LandingScreen';
+import LoginScreen from './src/screens/auth/LoginScreen';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -53,7 +55,7 @@ export default function App() {
 
   return resourcesIsLoaded ? (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <H1Heading>App is loading</H1Heading>
+      <LandingScreen />
     </View>
   ) : null;
 }
