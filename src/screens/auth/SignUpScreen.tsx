@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import {
   ScreenContainer,
   HeadingContainer,
-  Row,
   SafeArea,
   ButtonContainer,
 } from '../../common/Containers';
-import {
-  BodySubtext,
-  BodyText,
-  CenterText,
-  H1Heading,
-} from '../../../assets/Fonts';
+import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { BackButton, PurpleButton } from '../../common/Buttons';
 import InputField from '../../common/InputField';
-import { styles } from './styles';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState('');
