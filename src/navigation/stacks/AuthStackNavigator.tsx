@@ -21,13 +21,13 @@ export default function AuthStackNavigator() {
     >
       <AuthStack.Screen name="Landing" component={LandingScreen} />
       <AuthStack.Screen name="Login" component={LoginScreen} />
-      <AuthStack.Screen name="Signup" component={SignUpScreen} />
+      <AuthStack.Screen name="SignUp" component={SignUpScreen} />
       <AuthStack.Screen
-        name="Demographics Survey"
+        name="DemographicsSurvey"
         component={DemographicsSurveyScreen}
       />
       <AuthStack.Screen
-        name="Data Collection"
+        name="DataCollection"
         component={DataCollectionPolicyScreen}
       />
     </AuthStack.Navigator>
