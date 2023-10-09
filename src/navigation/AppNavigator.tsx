@@ -3,5 +3,9 @@ import React from 'react';
 import AuthStackNavigator from './stacks/AuthStackNavigator';
 
 export default function AppNavigator() {
-  return <AuthStackNavigator />;
+  return (
+    <NavigationContainer>
+      <AuthStackNavigator />
+    </NavigationContainer>
+  );
 }

@@ -8,8 +8,11 @@ import {
 import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/auth/InputField';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function SignUpScreen() {
+export default function SignUpScreen({
+  navigation,
+}: AuthStackScreenProps<'SignUp'>) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +24,7 @@ export default function SignUpScreen() {
   const onChangeConfirmPassword = (value: string) => setConfirmPassword(value);
 
   const navigateToDemographics = () => {
-    // TODO
+    navigation.navigate('DemographicsSurvey');
   };
 
   return (

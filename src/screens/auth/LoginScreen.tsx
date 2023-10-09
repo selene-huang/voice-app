@@ -15,8 +15,11 @@ import {
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/auth/InputField';
 import { styles } from './styles';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function LoginScreen() {
+export default function LoginScreen({
+  navigation,
+}: AuthStackScreenProps<'Login'>) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,7 +27,7 @@ export default function LoginScreen() {
   const onChangePassword = (value: string) => setPassword(value);
 
   const navigateToSignUp = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {

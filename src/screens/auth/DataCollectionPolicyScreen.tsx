@@ -14,14 +14,17 @@ import {
   PurpleButton,
 } from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function DataCollectionPolicyScreen() {
+export default function DataCollectionPolicyScreen({
+  navigation,
+}: AuthStackScreenProps<'DataCollection'>) {
   const [isChecked, setIsAgreed] = useState(false);
 
   const onPressAgreement = () => setIsAgreed(!isChecked);
 
   const createAccount = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {

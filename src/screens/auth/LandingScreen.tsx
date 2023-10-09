@@ -10,13 +10,16 @@ import {
   GreenButton,
   PurpleButton,
 } from '../../components/common/Buttons';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function LandingScreen() {
+export default function LandingScreen({
+  navigation,
+}: AuthStackScreenProps<'Landing'>) {
   const navigateToLogin = () => {
-    // TODO
+    navigation.navigate('Login');
   };
   const navigateToSignUp = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
   const continueAsGuest = () => {
     // TODO
