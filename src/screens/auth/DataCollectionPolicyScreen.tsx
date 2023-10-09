@@ -7,17 +7,8 @@ import {
   SafeArea,
   ButtonContainer,
 } from '../../common/Containers';
-import {
-  BodySubtext,
-  BodyText,
-  CenterText,
-  H1Heading,
-  LightPurpleText,
-} from '../../../assets/Fonts';
+import { BodyText, H1Heading, LightPurpleText } from '../../../assets/Fonts';
 import { BackButton, GrayButton, PurpleButton } from '../../common/Buttons';
-import InputField from '../../common/InputField';
-import { styles } from './styles';
-import Icon from 'react-native-vector-icons/AntDesign';
 import Colors from '../../../assets/Colors';
 
 export default function DataCollectionPolicyScreen() {
