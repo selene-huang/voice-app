@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Checkbox from 'expo-checkbox';
 import {
   ScreenContainer,
   HeadingContainer,
@@ -20,9 +21,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Colors from '../../../assets/Colors';
 
 export default function DataCollectionPolicyScreen() {
-  const [isAgreed, setIsAgreed] = useState(false);
+  const [isChecked, setIsAgreed] = useState(false);
 
-  const onPressAgreement = () => setIsAgreed(!isAgreed);
+  const onPressAgreement = () => setIsAgreed(!isChecked);
 
   const createAccount = () => {
     // TODO
@@ -51,17 +52,21 @@ export default function DataCollectionPolicyScreen() {
           culpa qui officia deserunt mollit anim id est laborum.
         </BodyText>
 
-        <BodyText>
-          <Icon
-            name="check"
-            size={12}
-            color={Colors.lightPurple}
-            onPress={onPressAgreement}
-          />
-          <LightPurpleText>
-            {'  '}I have read and understand the data collection policy.
-          </LightPurpleText>
-        </BodyText>
+        <ButtonContainer>
+          <Row>
+            <Checkbox
+              style={{ marginRight: 10 }}
+              value={isChecked}
+              color={Colors.lightPurple}
+              onValueChange={onPressAgreement}
+            />
+            <BodyText style={{ flex: 1 }}>
+              <LightPurpleText>
+                I have read and understood the data collection policy.
+              </LightPurpleText>
+            </BodyText>
+          </Row>
+        </ButtonContainer>
 
         <ButtonContainer>
           <PurpleButton onPress={createAccount} text="Create Account" />
