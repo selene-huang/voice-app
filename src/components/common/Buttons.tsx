@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
-import Colors from '../../assets/Colors';
-import { BodyText, ButtonText, YellowText } from '../../assets/Fonts';
+import Colors from '../../../assets/Colors';
+import { BodyText, ButtonText, YellowText } from '../../../assets/Fonts';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const ButtonBase = styled.TouchableOpacity`
@@ -77,14 +77,17 @@ const BackButtonBase = styled.TouchableOpacity`
 `;
 
 type BackButtonProps = {
-  navigation?: undefined;
-  // TODO: implement navigation and make prop required
+  navigation: any;
 };
 
 export function BackButton({ navigation }: BackButtonProps) {
   return (
     <BackButtonContainer>
-      <BackButtonBase onPress={() => {}}>
+      <BackButtonBase
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
         <BodyText>
           <Icon name="left" size={15} color={Colors.cream} /> Back
         </BodyText>

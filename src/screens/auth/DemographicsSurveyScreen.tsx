@@ -4,12 +4,15 @@ import {
   HeadingContainer,
   SafeArea,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
 import { BodyText, H1Heading } from '../../../assets/Fonts';
-import { BackButton, PurpleButton } from '../../common/Buttons';
-import InputField from '../../common/InputField';
+import { BackButton, PurpleButton } from '../../components/common/Buttons';
+import InputField from '../../components/auth/InputField';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function DemographicsSurveyScreen() {
+export default function DemographicsSurveyScreen({
+  navigation,
+}: AuthStackScreenProps<'DemographicsSurvey'>) {
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [region, setRegion] = useState('');
@@ -23,12 +26,12 @@ export default function DemographicsSurveyScreen() {
   const onChangeTrainingTime = (value: string) => setTrainingTime(value);
 
   const navigateToCollectionPolicy = () => {
-    // TODO
+    navigation.navigate('DataCollection');
   };
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

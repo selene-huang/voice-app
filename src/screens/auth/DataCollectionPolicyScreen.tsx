@@ -6,27 +6,25 @@ import {
   Row,
   SafeArea,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
+import { BodyText, H1Heading, LightPurpleText } from '../../../assets/Fonts';
 import {
-  BodySubtext,
-  BodyText,
-  CenterText,
-  H1Heading,
-  LightPurpleText,
-} from '../../../assets/Fonts';
-import { BackButton, GrayButton, PurpleButton } from '../../common/Buttons';
-import InputField from '../../common/InputField';
-import { styles } from './styles';
-import Icon from 'react-native-vector-icons/AntDesign';
+  BackButton,
+  GrayButton,
+  PurpleButton,
+} from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function DataCollectionPolicyScreen() {
+export default function DataCollectionPolicyScreen({
+  navigation,
+}: AuthStackScreenProps<'DataCollection'>) {
   const [isChecked, setIsAgreed] = useState(false);
 
   const onPressAgreement = () => setIsAgreed(!isChecked);
 
   const createAccount = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {
@@ -35,7 +33,7 @@ export default function DataCollectionPolicyScreen() {
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

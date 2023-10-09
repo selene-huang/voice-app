@@ -5,18 +5,21 @@ import {
   Row,
   SafeArea,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
 import {
   BodySubtext,
   BodyText,
   CenterText,
   H1Heading,
 } from '../../../assets/Fonts';
-import { BackButton, PurpleButton } from '../../common/Buttons';
-import InputField from '../../common/InputField';
+import { BackButton, PurpleButton } from '../../components/common/Buttons';
+import InputField from '../../components/auth/InputField';
 import { styles } from './styles';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function LoginScreen() {
+export default function LoginScreen({
+  navigation,
+}: AuthStackScreenProps<'Login'>) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,7 +27,7 @@ export default function LoginScreen() {
   const onChangePassword = (value: string) => setPassword(value);
 
   const navigateToSignUp = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {
@@ -37,7 +40,7 @@ export default function LoginScreen() {
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

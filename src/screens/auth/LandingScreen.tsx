@@ -3,16 +3,23 @@ import {
   SafeArea,
   StartContainer,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
 import { Title } from '../../../assets/Fonts';
-import { GrayButton, GreenButton, PurpleButton } from '../../common/Buttons';
+import {
+  GrayButton,
+  GreenButton,
+  PurpleButton,
+} from '../../components/common/Buttons';
+import { AuthStackScreenProps } from '../../navigation/types';
 
-export default function LandingScreen() {
+export default function LandingScreen({
+  navigation,
+}: AuthStackScreenProps<'Landing'>) {
   const navigateToLogin = () => {
-    // TODO
+    navigation.navigate('Login');
   };
   const navigateToSignUp = () => {
-    // TODO
+    navigation.navigate('SignUp');
   };
   const continueAsGuest = () => {
     // TODO
