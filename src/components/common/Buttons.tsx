@@ -77,14 +77,17 @@ const BackButtonBase = styled.TouchableOpacity`
 `;
 
 type BackButtonProps = {
-  navigation?: undefined;
-  // TODO: implement navigation and make prop required
+  navigation: any;
 };
 
 export function BackButton({ navigation }: BackButtonProps) {
   return (
     <BackButtonContainer>
-      <BackButtonBase onPress={() => {}}>
+      <BackButtonBase
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
         <BodyText>
           <Icon name="left" size={15} color={Colors.cream} /> Back
         </BodyText>

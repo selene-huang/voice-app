@@ -40,7 +40,7 @@ export default function LoginScreen({
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

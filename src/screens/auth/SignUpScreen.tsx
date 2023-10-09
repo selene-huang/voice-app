@@ -29,7 +29,7 @@ export default function SignUpScreen({
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

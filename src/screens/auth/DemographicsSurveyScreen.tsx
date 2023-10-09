@@ -31,7 +31,7 @@ export default function DemographicsSurveyScreen({
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>

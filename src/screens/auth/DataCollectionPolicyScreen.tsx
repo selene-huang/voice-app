@@ -33,7 +33,7 @@ export default function DataCollectionPolicyScreen({
 
   return (
     <SafeArea>
-      <BackButton />
+      <BackButton navigation={navigation} />
 
       <ScreenContainer>
         <HeadingContainer>
