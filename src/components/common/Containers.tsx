@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Colors from '../../assets/Colors';
+import Colors from '../../../assets/Colors';
 
 export const SafeArea = styled(SafeAreaView)`
   background-color: ${Colors.darkGray};

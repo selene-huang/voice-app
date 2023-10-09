@@ -3,9 +3,13 @@ import {
   SafeArea,
   StartContainer,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
 import { Title } from '../../../assets/Fonts';
-import { GrayButton, GreenButton, PurpleButton } from '../../common/Buttons';
+import {
+  GrayButton,
+  GreenButton,
+  PurpleButton,
+} from '../../components/common/Buttons';
 
 export default function LandingScreen() {
   const navigateToLogin = () => {

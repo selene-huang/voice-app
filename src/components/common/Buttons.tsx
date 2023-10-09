@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
-import Colors from '../../assets/Colors';
-import { BodyText, ButtonText, YellowText } from '../../assets/Fonts';
+import Colors from '../../../assets/Colors';
+import { BodyText, ButtonText, YellowText } from '../../../assets/Fonts';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const ButtonBase = styled.TouchableOpacity`

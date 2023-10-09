@@ -6,9 +6,13 @@ import {
   Row,
   SafeArea,
   ButtonContainer,
-} from '../../common/Containers';
+} from '../../components/common/Containers';
 import { BodyText, H1Heading, LightPurpleText } from '../../../assets/Fonts';
-import { BackButton, GrayButton, PurpleButton } from '../../common/Buttons';
+import {
+  BackButton,
+  GrayButton,
+  PurpleButton,
+} from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
 
 export default function DataCollectionPolicyScreen() {
