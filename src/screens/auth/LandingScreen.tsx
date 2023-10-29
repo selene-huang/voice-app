@@ -11,18 +11,23 @@ import {
   PurpleButton,
 } from '../../components/common/Buttons';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { useAuthContext } from './AuthContext';
 
 export default function LandingScreen({
   navigation,
 }: AuthStackScreenProps<'Landing'>) {
+  const { dispatch } = useAuthContext();
+
   const toLogin = () => {
     navigation.navigate('Login');
   };
+
   const toSignUp = () => {
     navigation.navigate('SignUp');
   };
+
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
   return (

@@ -9,6 +9,8 @@ import React, {
 
 export type AuthDispatch = React.Dispatch<AuthContextAction>;
 
+export const GUEST_USER = { username: 'GUEST', signInUserSession: null };
+
 type AuthState = {
   user: any;
   userSignUpData: any;
@@ -22,6 +24,7 @@ type AuthContextAction =
   | { type: 'RESTORE_USER'; user: any | null }
   | { type: 'SET_USER_SIGN_UP_DATA'; data: any }
   | { type: 'SIGN_IN'; user: any }
+  | { type: 'SIGN_IN_AS_GUEST' }
   | { type: 'SIGN_OUT' }
   | { type: 'SET_ERROR_MESSAGE'; errorMessage: string }
   | { type: 'SET_SUCCESS_MESSAGE'; successMessage: string };
@@ -43,6 +46,14 @@ const useAuthReducer = () =>
             ...prevState,
             isLoading: false,
             user: action.user,
+            errorMessage: null,
+            successMessage: null,
+          };
+        case 'SIGN_IN_AS_GUEST':
+          return {
+            ...prevState,
+            isLoading: false,
+            user: GUEST_USER,
             errorMessage: null,
             successMessage: null,
           };
@@ -99,6 +110,7 @@ export function AuthContextProvider({
   useEffect(() => {
     console.log('Help');
     Hub.listen('auth', ({ payload }) => {
+      console.log('Listening');
       console.log('Hi');
       const { event } = payload;
       if (event === 'autoSignIn') {

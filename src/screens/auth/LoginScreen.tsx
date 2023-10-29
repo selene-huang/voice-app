@@ -16,6 +16,7 @@ import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/auth/InputField';
 import { styles } from './styles';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { useAuthContext } from './AuthContext';
 
 export default function LoginScreen({
   navigation,
@@ -26,12 +27,14 @@ export default function LoginScreen({
   const onChangeEmail = (value: string) => setEmail(value);
   const onChangePassword = (value: string) => setPassword(value);
 
+  const { dispatch } = useAuthContext();
+
   const toSignUp = () => {
     navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
   const handleLogin = () => {

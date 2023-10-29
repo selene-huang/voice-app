@@ -7,7 +7,6 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { AuthContextProvider } from './src/screens/auth/AuthContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
-import HomeScreen from './src/screens/home/HomeScreen';
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources
@@ -58,10 +57,9 @@ export default function App() {
 
   return resourcesIsLoaded ? (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <HomeScreen />
-      {/* <AuthContextProvider>
+      <AuthContextProvider>
         <AppNavigator />
-      </AuthContextProvider> */}
+      </AuthContextProvider>
     </View>
   ) : null;
 }

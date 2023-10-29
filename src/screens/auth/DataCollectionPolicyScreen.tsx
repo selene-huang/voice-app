@@ -48,7 +48,7 @@ export default function DataCollectionPolicyScreen({
   };
 
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
   return (
