@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import AppNavigator from './src/navigation/AppNavigator';
+import { AuthContextProvider } from './src/screens/auth/AuthContext';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -53,7 +54,9 @@ export default function App() {
 
   return resourcesIsLoaded ? (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <AppNavigator />
+      <AuthContextProvider>
+        <AppNavigator />
+      </AuthContextProvider>
     </View>
   ) : null;
 }

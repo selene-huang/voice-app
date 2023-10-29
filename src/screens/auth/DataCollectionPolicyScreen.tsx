@@ -15,16 +15,47 @@ import {
 } from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { Auth } from 'aws-amplify';
+import { useAuthContext } from './AuthContext';
 
 export default function DataCollectionPolicyScreen({
   navigation,
 }: AuthStackScreenProps<'DataCollection'>) {
   const [isChecked, setIsAgreed] = useState(false);
+  const { userSignUpData, dispatch } = useAuthContext();
 
   const onPressAgreement = () => setIsAgreed(!isChecked);
 
+  const createAccountHelper = async (
+    username: string,
+    email: string,
+    password: string
+  ) => {
+    try {
+      const { user } = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+        },
+        autoSignIn: {
+          enabled: true,
+        },
+      });
+      console.log(user);
+      dispatch({ type: 'SIGN_IN', user: user });
+      console.log('Dispatch successful');
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  };
+
   const createAccount = () => {
-    navigation.navigate('SignUp');
+    createAccountHelper(
+      userSignUpData.username,
+      userSignUpData.email,
+      userSignUpData.password
+    );
   };
 
   const continueAsGuest = () => {
