@@ -3,9 +3,9 @@ import Checkbox from 'expo-checkbox';
 import {
   ScreenContainer,
   HeadingContainer,
-  Row,
   SafeArea,
   ButtonContainer,
+  PressableRow,
 } from '../../components/common/Containers';
 import { BodyText, H1Heading, LightPurpleText } from '../../../assets/Fonts';
 import {
@@ -24,7 +24,7 @@ export default function DataCollectionPolicyScreen({
   const [isChecked, setIsAgreed] = useState(false);
   const { userSignUpData, dispatch } = useAuthContext();
 
-  const onPressAgreement = () => setIsAgreed(!isChecked);
+  const toggleAgreement = () => setIsAgreed(!isChecked);
 
   const createAccountHelper = async (
     username: string,
@@ -82,19 +82,19 @@ export default function DataCollectionPolicyScreen({
         </BodyText>
 
         <ButtonContainer>
-          <Row>
+          <PressableRow onPress={toggleAgreement}>
             <Checkbox
               style={{ marginRight: 10 }}
               value={isChecked}
               color={Colors.lightPurple}
-              onValueChange={onPressAgreement}
+              onValueChange={toggleAgreement}
             />
             <BodyText style={{ flex: 1 }}>
               <LightPurpleText>
                 I have read and understood the data collection policy.
               </LightPurpleText>
             </BodyText>
-          </Row>
+          </PressableRow>
         </ButtonContainer>
 
         <ButtonContainer>

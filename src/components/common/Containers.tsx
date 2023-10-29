@@ -39,6 +39,14 @@ export const Row = styled.View`
   width: 100%;
 `;
 
+export const PressableRow = styled.Pressable`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
 export const CenteredRow = styled(Row)`
   justify-content: center;
 `;
