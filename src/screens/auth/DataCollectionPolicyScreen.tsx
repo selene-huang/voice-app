@@ -26,18 +26,11 @@ export default function DataCollectionPolicyScreen({
 
   const toggleAgreement = () => setIsAgreed(!isChecked);
 
-  const createAccountHelper = async (
-    username: string,
-    email: string,
-    password: string
-  ) => {
+  const createAccountHelper = async (email: string, password: string) => {
     try {
       const { user } = await Auth.signUp({
-        username,
+        username: email,
         password,
-        attributes: {
-          email,
-        },
         autoSignIn: {
           enabled: true,
         },
@@ -51,11 +44,7 @@ export default function DataCollectionPolicyScreen({
   };
 
   const createAccount = () => {
-    createAccountHelper(
-      userSignUpData.username,
-      userSignUpData.email,
-      userSignUpData.password
-    );
+    createAccountHelper(userSignUpData.email, userSignUpData.password);
   };
 
   const continueAsGuest = () => {
