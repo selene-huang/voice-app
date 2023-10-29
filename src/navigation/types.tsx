@@ -10,3 +10,10 @@ export type AuthStackParamList = {
 
 export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
   NativeStackScreenProps<AuthStackParamList, T>;
+
+export type TrainingStackParamList = {
+  Home: undefined;
+};
+
+export type TrainingStackScreenProps<T extends keyof TrainingStackParamList> =
+  NativeStackScreenProps<TrainingStackParamList, T>;

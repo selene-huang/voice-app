@@ -26,7 +26,7 @@ export default function LoginScreen({
   const onChangeEmail = (value: string) => setEmail(value);
   const onChangePassword = (value: string) => setPassword(value);
 
-  const navigateToSignUp = () => {
+  const toSignUp = () => {
     navigation.navigate('SignUp');
   };
 
@@ -59,7 +59,7 @@ export default function LoginScreen({
         <CenterText>
           <Row>
             <BodySubtext>Don't have an account? </BodySubtext>
-            <BodySubtext onPress={navigateToSignUp} style={styles.underline}>
+            <BodySubtext onPress={toSignUp} style={styles.underline}>
               Sign up
             </BodySubtext>
             <BodySubtext>!</BodySubtext>

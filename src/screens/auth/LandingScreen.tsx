@@ -15,10 +15,10 @@ import { AuthStackScreenProps } from '../../navigation/types';
 export default function LandingScreen({
   navigation,
 }: AuthStackScreenProps<'Landing'>) {
-  const navigateToLogin = () => {
+  const toLogin = () => {
     navigation.navigate('Login');
   };
-  const navigateToSignUp = () => {
+  const toSignUp = () => {
     navigation.navigate('SignUp');
   };
   const continueAsGuest = () => {
@@ -31,8 +31,8 @@ export default function LandingScreen({
         <Title>{'Welcome to\nVoice Training!'}</Title>
 
         <ButtonContainer>
-          <PurpleButton text="Login" onPress={navigateToLogin} />
-          <GreenButton text="Sign Up" onPress={navigateToSignUp} />
+          <PurpleButton text="Login" onPress={toLogin} />
+          <GreenButton text="Sign Up" onPress={toSignUp} />
           <GrayButton text="Continue as a Guest" onPress={continueAsGuest} />
         </ButtonContainer>
       </StartContainer>
