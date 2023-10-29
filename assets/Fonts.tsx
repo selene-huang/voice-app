@@ -57,6 +57,10 @@ export const LightPurpleText = styled.Text`
   color: ${Colors.lightPurple};
 `;
 
+export const DarkGrayText = styled.Text`
+  color: ${Colors.darkGray};
+`;
+
 export const CenterText = styled.Text`
   text-align: center;
 `;

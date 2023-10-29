@@ -5,12 +5,8 @@ import {
   ButtonContainer,
 } from '../../components/common/Containers';
 import { Title } from '../../../assets/Fonts';
-import {
-  GrayButton,
-  GreenButton,
-  PurpleButton,
-} from '../../components/common/Buttons';
 import { TrainingStackScreenProps } from '../../navigation/types';
+import { HomeButton } from '../../components/home/HomeButtons';
 
 export default function HomeScreen({
   navigation,
@@ -34,9 +30,30 @@ export default function HomeScreen({
         <Title>{'Hi!'}</Title>
 
         <ButtonContainer>
-          <PurpleButton text="Ear Training" onPress={toEarTraining} />
-          <GreenButton text="Voice Training" onPress={toVoiceTraining} />
-          <GrayButton text="Vocal Practice" onPress={toVocalPractice} />
+          <HomeButton
+            color="purple"
+            icon="hearing"
+            text="Ear Training"
+            onPress={toEarTraining}
+          />
+          <HomeButton
+            color="green"
+            icon="fitness-center"
+            text="Voice Training"
+            onPress={toVoiceTraining}
+          />
+          <HomeButton
+            color="lightGreen"
+            icon="mic"
+            text="Vocal Practice"
+            onPress={toVocalPractice}
+          />
+          <HomeButton
+            color="yellow"
+            icon="person"
+            text="My Profile"
+            onPress={toProfile}
+          />
         </ButtonContainer>
       </StartContainer>
     </SafeArea>
