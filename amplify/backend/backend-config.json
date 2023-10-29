@@ -1,45 +1,30 @@
 {
   "auth": {
-    "voiceappa01d64f2": {
+    "voiceapptest2": {
       "customAuth": false,
       "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "imported"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_auth_voiceappa01d64f2_nativeClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "voiceappa01d64f2"
-        }
-      ]
-    },
-    "AMPLIFY_auth_voiceappa01d64f2_userPoolId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "voiceappa01d64f2"
-        }
-      ]
-    },
-    "AMPLIFY_auth_voiceappa01d64f2_userPoolName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "voiceappa01d64f2"
-        }
-      ]
-    },
-    "AMPLIFY_auth_voiceappa01d64f2_webClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "voiceappa01d64f2"
-        }
-      ]
+      "service": "Cognito"
     }
   }
 }

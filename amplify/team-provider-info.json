@@ -1,4 +1,22 @@
 {
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify96b9e97f2c684-staging-45547-authRole",
+      "UnauthRoleArn": "arn:aws:iam::280220053741:role/amplify-amplify96b9e97f2c684-staging-45547-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::280220053741:role/amplify-amplify96b9e97f2c684-staging-45547-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify96b9e97f2c684-staging-45547-deployment",
+      "UnauthRoleName": "amplify-amplify96b9e97f2c684-staging-45547-unauthRole",
+      "StackName": "amplify-amplify96b9e97f2c684-staging-45547",
+      "StackId": "arn:aws:cloudformation:us-east-1:280220053741:stack/amplify-amplify96b9e97f2c684-staging-45547/6c9a9720-7617-11ee-bed6-0e8ae26b5b71",
+      "AmplifyAppId": "d28epgl1s4h6ki"
+    },
+    "categories": {
+      "auth": {
+        "voiceapptest2": {}
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-voiceapp-dev-232628-authRole",
