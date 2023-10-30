@@ -108,21 +108,8 @@ export function AuthContextProvider({
 
   // Subscribe to auth state changes and restore the user if they're already signed in
   useEffect(() => {
-    console.log('Help');
-    Hub.listen('auth', ({ payload }) => {
-      console.log('Listening');
-      console.log('Hi');
-      const { event } = payload;
-      if (event === 'autoSignIn') {
-        const user = payload.data;
-        console.log('h');
-        dispatch({ type: 'RESTORE_USER', user });
-      } else {
-        console.log('e');
-        dispatch({ type: 'RESTORE_USER', user: null });
-      }
-    });
-    console.log('done');
+    // TODO: keep a user logged in
+    dispatch({ type: 'RESTORE_USER', user: null });
   }, [dispatch]);
 
   const authContextValue = useMemo(
