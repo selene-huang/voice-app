@@ -24,17 +24,15 @@ export default function SignUpScreen({
   const onChangePassword = (value: string) => setPassword(value);
   const onChangeConfirmPassword = (value: string) => setConfirmPassword(value);
 
-  const { userSignUpData, dispatch } = useAuthContext();
+  const { dispatch } = useAuthContext();
 
   const submitUserInfo = () => {
     // TODO: check that username is valid
     // TODO: validate email & password
     console.log({ email, password });
-    // console.log({ email, username, password });
     dispatch({
       type: 'SET_USER_SIGN_UP_DATA',
       data: { email, password },
-      // data: { email, username, password },
     });
     console.log('Submitted');
     navigation.navigate('DemographicsSurvey');
@@ -48,9 +46,6 @@ export default function SignUpScreen({
         <HeadingContainer>
           <H1Heading>Welcome!</H1Heading>
         </HeadingContainer>
-
-        {/* <BodyText>Username</BodyText>
-        <InputField value={username} onChange={onChangeUsername} /> */}
 
         <BodyText>Email</BodyText>
         <InputField value={email} onChange={onChangeEmail} />

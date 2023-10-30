@@ -16,6 +16,7 @@ import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/auth/InputField';
 import { styles } from './styles';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { Auth } from 'aws-amplify';
 import { useAuthContext } from './AuthContext';
 
 export default function LoginScreen({
@@ -37,8 +38,17 @@ export default function LoginScreen({
     dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
-  const handleLogin = () => {
-    // TODO
+  const handleLogin = async () => {
+    try {
+      console.log('Signing in with email, password');
+      const user = await Auth.signIn(email, password);
+      console.log('Got user');
+      console.log(user);
+      dispatch({ type: 'SIGN_IN', user });
+      console.log('SIGNED IN');
+    } catch (error) {
+      console.log('error signing in', error);
+    }
   };
 
   return (
