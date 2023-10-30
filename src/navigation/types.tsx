@@ -6,6 +6,7 @@ export type AuthStackParamList = {
   SignUp: undefined;
   DemographicsSurvey: undefined;
   DataCollection: undefined;
+  EmailConfirmation: undefined;
 };
 
 export type AuthStackScreenProps<T extends keyof AuthStackParamList> =

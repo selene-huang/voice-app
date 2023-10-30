@@ -6,19 +6,17 @@ import {
   ButtonContainer,
 } from '../../components/common/Containers';
 import OTPTextInput from 'react-native-otp-textinput';
-import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
-import InputField from '../../components/auth/InputField';
 import { AuthStackScreenProps } from '../../navigation/types';
 import { useAuthContext } from './AuthContext';
 import { Auth } from 'aws-amplify';
-import { TextInput } from 'react-native';
 import Colors from '../../../assets/Colors';
 import { styles } from './styles';
+import { H1Heading } from '../../../assets/Fonts';
 
 export default function EmailConfirmationScreen({
   navigation,
-}: AuthStackScreenProps<'SignUp'>) {
+}: AuthStackScreenProps<'EmailConfirmation'>) {
   const { userSignUpData, dispatch } = useAuthContext();
 
   const [codeInput, setCodeInput] = useState<string>('');
@@ -60,7 +58,7 @@ export default function EmailConfirmationScreen({
 
         <OTPTextInput
           ref={otpInput}
-          inputCount={7}
+          inputCount={6}
           tintColor={Colors.purple}
           defaultValue={codeInput}
           inputCellLength={1}
@@ -72,11 +70,13 @@ export default function EmailConfirmationScreen({
           autoFocus={false}
         />
 
-        <PurpleButton
-          text="Verify"
-          onPress={submitVerification}
-          disabled={codeInput.length !== 6}
-        />
+        <ButtonContainer>
+          <PurpleButton
+            text="Verify"
+            onPress={submitVerification}
+            disabled={codeInput.length !== 6}
+          />
+        </ButtonContainer>
       </ScreenContainer>
     </SafeArea>
   );

@@ -36,8 +36,7 @@ export default function DataCollectionPolicyScreen({
         },
       });
       console.log(user);
-      dispatch({ type: 'SIGN_IN', user: user });
-      console.log('Dispatch successful');
+      navigation.navigate('EmailConfirmation');
     } catch (error) {
       console.log('error signing up:', error);
     }
