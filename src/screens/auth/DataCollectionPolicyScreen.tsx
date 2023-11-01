@@ -3,9 +3,9 @@ import Checkbox from 'expo-checkbox';
 import {
   ScreenContainer,
   HeadingContainer,
-  Row,
   SafeArea,
   ButtonContainer,
+  PressableRow,
 } from '../../components/common/Containers';
 import { BodyText, H1Heading, LightPurpleText } from '../../../assets/Fonts';
 import {
@@ -15,20 +15,39 @@ import {
 } from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { Auth } from 'aws-amplify';
+import { useAuthContext } from './AuthContext';
 
 export default function DataCollectionPolicyScreen({
   navigation,
 }: AuthStackScreenProps<'DataCollection'>) {
   const [isChecked, setIsAgreed] = useState(false);
+  const { userSignUpData, dispatch } = useAuthContext();
 
-  const onPressAgreement = () => setIsAgreed(!isChecked);
+  const toggleAgreement = () => setIsAgreed(!isChecked);
+
+  const createAccountHelper = async (email: string, password: string) => {
+    try {
+      const { user } = await Auth.signUp({
+        username: email,
+        password,
+        autoSignIn: {
+          enabled: true,
+        },
+      });
+      console.log(user);
+      navigation.navigate('EmailConfirmation');
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  };
 
   const createAccount = () => {
-    navigation.navigate('SignUp');
+    createAccountHelper(userSignUpData.email, userSignUpData.password);
   };
 
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
   return (
@@ -51,19 +70,19 @@ export default function DataCollectionPolicyScreen({
         </BodyText>
 
         <ButtonContainer>
-          <Row>
+          <PressableRow onPress={toggleAgreement}>
             <Checkbox
               style={{ marginRight: 10 }}
               value={isChecked}
               color={Colors.lightPurple}
-              onValueChange={onPressAgreement}
+              onValueChange={toggleAgreement}
             />
             <BodyText style={{ flex: 1 }}>
               <LightPurpleText>
                 I have read and understood the data collection policy.
               </LightPurpleText>
             </BodyText>
-          </Row>
+          </PressableRow>
         </ButtonContainer>
 
         <ButtonContainer>

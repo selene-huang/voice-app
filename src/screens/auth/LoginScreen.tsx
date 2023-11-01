@@ -16,6 +16,8 @@ import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/auth/InputField';
 import { styles } from './styles';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { Auth } from 'aws-amplify';
+import { useAuthContext } from './AuthContext';
 
 export default function LoginScreen({
   navigation,
@@ -26,16 +28,27 @@ export default function LoginScreen({
   const onChangeEmail = (value: string) => setEmail(value);
   const onChangePassword = (value: string) => setPassword(value);
 
-  const navigateToSignUp = () => {
+  const { dispatch } = useAuthContext();
+
+  const toSignUp = () => {
     navigation.navigate('SignUp');
   };
 
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
-  const handleLogin = () => {
-    // TODO
+  const handleLogin = async () => {
+    try {
+      console.log('Signing in with email, password');
+      const user = await Auth.signIn(email, password);
+      console.log('Got user');
+      console.log(user);
+      dispatch({ type: 'SIGN_IN', user });
+      console.log('SIGNED IN');
+    } catch (error) {
+      console.log('error signing in', error);
+    }
   };
 
   return (
@@ -59,7 +72,7 @@ export default function LoginScreen({
         <CenterText>
           <Row>
             <BodySubtext>Don't have an account? </BodySubtext>
-            <BodySubtext onPress={navigateToSignUp} style={styles.underline}>
+            <BodySubtext onPress={toSignUp} style={styles.underline}>
               Sign up
             </BodySubtext>
             <BodySubtext>!</BodySubtext>

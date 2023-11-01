@@ -25,7 +25,7 @@ export default function DemographicsSurveyScreen({
   const onChangeVoiceGoals = (value: string) => setVoiceGoals(value);
   const onChangeTrainingTime = (value: string) => setTrainingTime(value);
 
-  const navigateToCollectionPolicy = () => {
+  const toCollectionPolicy = () => {
     navigation.navigate('DataCollection');
   };
 
@@ -54,7 +54,7 @@ export default function DemographicsSurveyScreen({
         <InputField value={trainingTime} onChange={onChangeTrainingTime} />
 
         <ButtonContainer>
-          <PurpleButton onPress={navigateToCollectionPolicy} text="Next" />
+          <PurpleButton onPress={toCollectionPolicy} text="Next" />
         </ButtonContainer>
       </ScreenContainer>
     </SafeArea>

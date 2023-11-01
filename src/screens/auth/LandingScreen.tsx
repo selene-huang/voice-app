@@ -11,18 +11,23 @@ import {
   PurpleButton,
 } from '../../components/common/Buttons';
 import { AuthStackScreenProps } from '../../navigation/types';
+import { useAuthContext } from './AuthContext';
 
 export default function LandingScreen({
   navigation,
 }: AuthStackScreenProps<'Landing'>) {
-  const navigateToLogin = () => {
+  const { dispatch } = useAuthContext();
+
+  const toLogin = () => {
     navigation.navigate('Login');
   };
-  const navigateToSignUp = () => {
+
+  const toSignUp = () => {
     navigation.navigate('SignUp');
   };
+
   const continueAsGuest = () => {
-    // TODO
+    dispatch({ type: 'SIGN_IN_AS_GUEST' });
   };
 
   return (
@@ -31,8 +36,8 @@ export default function LandingScreen({
         <Title>{'Welcome to\nVoice Training!'}</Title>
 
         <ButtonContainer>
-          <PurpleButton text="Login" onPress={navigateToLogin} />
-          <GreenButton text="Sign Up" onPress={navigateToSignUp} />
+          <PurpleButton text="Login" onPress={toLogin} />
+          <GreenButton text="Sign Up" onPress={toSignUp} />
           <GrayButton text="Continue as a Guest" onPress={continueAsGuest} />
         </ButtonContainer>
       </StartContainer>
