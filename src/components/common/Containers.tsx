@@ -31,6 +31,22 @@ export const ButtonContainer = styled.View`
   margin-top: 34px;
 `;
 
+export const Column = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+`;
+
+export const ColumnEnd = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+`;
+
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
