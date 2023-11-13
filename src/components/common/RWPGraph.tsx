@@ -1,16 +1,11 @@
 import React, { StyleSheet, View } from 'react-native';
 import Colors from '../../../assets/Colors';
-import {
-  CartesianChart,
-  Line,
-  Scatter,
-  useChartPressState,
-} from 'victory-native';
-import { Circle, useFont } from '@shopify/react-native-skia';
+import { CartesianChart, Scatter, useChartPressState } from 'victory-native';
+import { Circle } from '@shopify/react-native-skia';
 import { SharedValue } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BodyEmphasis, BodyText, YellowText } from '../../../assets/Fonts';
-import Icon from 'react-native-vector-icons/AntDesign';
+import { MaterialIcons } from '@expo/vector-icons';
 import {
   CenteredRow,
   Column,
@@ -18,7 +13,6 @@ import {
   LeftAlignContainer,
   Row,
 } from './Containers';
-import { useState } from 'react';
 
 type RWPPoint = {
   resonance: number;
@@ -29,9 +23,16 @@ type RWPPoint = {
 type RWPGraphProps = {
   type: 'weight' | 'pitch';
   points: RWPPoint[];
+  openXAxisModal: () => void;
+  openYAxisModal: () => void;
 };
 
-export function RWPGraph({ type, points }: RWPGraphProps) {
+export function RWPGraph({
+  type,
+  points,
+  openXAxisModal,
+  openYAxisModal,
+}: RWPGraphProps) {
   const { state, isActive } = useChartPressState({
     x: 0,
     y: { pitch: 0, weight: 0 },
@@ -62,9 +63,14 @@ export function RWPGraph({ type, points }: RWPGraphProps) {
     <View>
       <CenteredRow style={styles.offsetLeftMargin}>
         <YellowText>
-          <BodyEmphasis>Resonance</BodyEmphasis>
+          <BodyEmphasis>{`Resonance `}</BodyEmphasis>
         </YellowText>
-        <Icon name="info-circle" size={15} color={Colors.cream} />
+        <MaterialIcons
+          name="help"
+          size={16}
+          color={Colors.yellow}
+          onPress={openXAxisModal}
+        />
       </CenteredRow>
       <Row>
         <Column>
@@ -140,10 +146,16 @@ export function RWPGraph({ type, points }: RWPGraphProps) {
           <YellowText
             style={{
               ...styles.rotatedText,
-              marginHorizontal: type == 'weight' ? -16 : -10,
+              marginHorizontal: type == 'weight' ? -25 : -19,
             }}
           >
-            <BodyEmphasis>{yAxisLabel}</BodyEmphasis>
+            <BodyEmphasis>{`${yAxisLabel} `}</BodyEmphasis>
+            <MaterialIcons
+              name="help"
+              size={16}
+              color={Colors.yellow}
+              onPress={openXAxisModal}
+            />
           </YellowText>
         </Column>
       </Row>
@@ -155,7 +167,7 @@ const styles = StyleSheet.create({
   offsetLeftMargin: { marginLeft: -10 },
   alignFlexStart: { alignItems: 'flex-start' },
   chartSize: { width: 250, height: 250, margin: 5 },
-  center: { justifyContent: 'center', alignContent: 'flex-end' },
+  center: { justifyContent: 'center' },
   rotatedText: {
     transform: [{ rotate: '90deg' }],
     marginTop: -10,

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {
   SafeArea,
-  StartContainer,
   ButtonContainer,
   HeadingContainer,
   ScreenContainer,
 } from '../../components/common/Containers';
-import { H1Heading, Title } from '../../../assets/Fonts';
+import { H1Heading } from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
-import { HomeButton } from '../../components/home/HomeButtons';
 import {
   BackButton,
   GreenButton,
@@ -23,7 +21,6 @@ export default function VoiceGoalsScreen({
   const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
   const [showWeight, setShowWeight] = useState(true);
 
-  //TODO FIX
   return (
     <SafeArea>
       <BackButton navigation={navigation} />
