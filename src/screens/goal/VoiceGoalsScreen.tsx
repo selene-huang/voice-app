@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeArea,
   StartContainer,
@@ -19,6 +19,10 @@ import { RWPGraph } from '../../components/common/RWPGraph';
 export default function VoiceGoalsScreen({
   navigation,
 }: TrainingStackScreenProps<'Home'>) {
+  const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
+  const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
+  const [showWeight, setShowWeight] = useState(true);
+
   //TODO FIX
   return (
     <SafeArea>
@@ -30,7 +34,10 @@ export default function VoiceGoalsScreen({
         </HeadingContainer>
 
         <ButtonContainer>
-          <RWPGraph />
+          <RWPGraph
+            type={showWeight ? 'weight' : 'pitch'}
+            points={DUMMY_DATA_2}
+          />
         </ButtonContainer>
 
         <ButtonContainer>
@@ -41,9 +48,9 @@ export default function VoiceGoalsScreen({
             }}
           />
           <GreenButton
-            text="View Resonance v. Pitch"
+            text={`View Resonance v. ${showWeight ? 'Pitch' : 'Weight'}`}
             onPress={() => {
-              /* TODO */
+              setShowWeight(!showWeight);
             }}
           />
         </ButtonContainer>

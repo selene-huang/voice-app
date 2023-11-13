@@ -1,7 +1,5 @@
 import React, { StyleSheet, View } from 'react-native';
 import Colors from '../../../assets/Colors';
-import Icon from 'react-native-vector-icons/AntDesign';
-import DMSans from '../../../assets/DM_Sans/static/DMSans-Regular.ttf';
 import {
   CartesianChart,
   Line,
@@ -12,6 +10,7 @@ import { Circle, useFont } from '@shopify/react-native-skia';
 import { SharedValue } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BodyEmphasis, BodyText, YellowText } from '../../../assets/Fonts';
+import Icon from 'react-native-vector-icons/AntDesign';
 import {
   CenteredRow,
   Column,
@@ -21,13 +20,33 @@ import {
 } from './Containers';
 import { useState } from 'react';
 
-const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
-const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
+type RWPPoint = {
+  resonance: number;
+  weight: number;
+  pitch: number;
+};
 
-export function RWPGraph() {
-  // const font = useFont(DMSans, 12);
-  const { state, isActive } = useChartPressState({ x: 0, y: { weight: 0 } });
-  const [showToolTip, setShowToolTip] = useState(false);
+type RWPGraphProps = {
+  type: 'weight' | 'pitch';
+  points: RWPPoint[];
+};
+
+export function RWPGraph({ type, points }: RWPGraphProps) {
+  const { state, isActive } = useChartPressState({
+    x: 0,
+    y: { pitch: 0, weight: 0 },
+  });
+
+  let maxValue, chartColor, yAxisLabel;
+  if (type == 'weight') {
+    yAxisLabel = 'Weight';
+    maxValue = 100;
+    chartColor = Colors.green;
+  } else {
+    yAxisLabel = 'Pitch';
+    maxValue = 600;
+    chartColor = Colors.purple;
+  }
 
   function ToolTip({
     x,
@@ -41,54 +60,69 @@ export function RWPGraph() {
 
   return (
     <View>
-      <CenteredRow style={{ marginLeft: -10 }}>
+      <CenteredRow style={styles.offsetLeftMargin}>
         <YellowText>
           <BodyEmphasis>Resonance</BodyEmphasis>
         </YellowText>
       </CenteredRow>
       <Row>
         <Column>
-          <BodyText>100</BodyText>
+          <BodyText>{maxValue}</BodyText>
           <ColumnEnd>
             <BodyText>0</BodyText>
           </ColumnEnd>
         </Column>
-        <Column style={{ alignItems: 'flex-start' }}>
+
+        <Column style={styles.alignFlexStart}>
           {isActive ? (
             <View
               style={{
                 backgroundColor: Colors.darkGray,
                 zIndex: 1,
                 position: 'absolute',
-                marginTop: 225 - 3 * DUMMY_DATA_1[0].weight,
-                marginLeft: 15 + 2 * DUMMY_DATA_1[0].resonance,
+                marginTop:
+                  type == 'weight'
+                    ? state.y.weight.position.value - 30
+                    : state.y.pitch.position.value - 30,
+                marginLeft: state.x.position.value - 25,
               }}
             >
-              <BodyText>{`(${DUMMY_DATA_1[0].resonance}, ${DUMMY_DATA_1[0].weight})`}</BodyText>
+              <BodyText>{`(${Math.round(state.x.position.value)}, ${Math.round(
+                type == 'weight'
+                  ? state.y.weight.position.value
+                  : state.y.pitch.position.value
+              )})`}</BodyText>
             </View>
           ) : null}
           <LinearGradient
-            colors={[Colors.green, Colors.yellow]}
+            colors={[chartColor, Colors.yellow]}
             start={{ x: 0, y: 1 }}
             end={{ x: 1, y: 0 }}
-            style={{ width: 250, height: 250, margin: 5 }}
+            style={styles.chartSize}
           >
             <CartesianChart
-              data={DUMMY_DATA_1}
+              data={points}
               xKey="resonance"
-              yKeys={['weight']}
+              yKeys={[type]}
               chartPressState={state}
-              domain={{ x: [0, 100], y: [0, 100] }}
+              domain={{ x: [0, 100], y: [0, maxValue] }}
             >
               {({ points }) => (
                 <>
                   <Scatter
-                    points={points.weight}
+                    points={type == 'weight' ? points.weight : points.pitch}
                     color={Colors.darkGray}
                     radius={7}
                   />
                   {isActive && (
-                    <ToolTip x={state.x.position} y={state.y.weight.position} />
+                    <ToolTip
+                      x={state.x.position}
+                      y={
+                        type == 'weight'
+                          ? state.y.weight.position
+                          : state.y.pitch.position
+                      }
+                    />
                   )}
                 </>
               )}
@@ -100,18 +134,29 @@ export function RWPGraph() {
             </LeftAlignContainer>
           </Row>
         </Column>
-        <Column style={{ justifyContent: 'center' }}>
+
+        <Column style={styles.center}>
           <YellowText
             style={{
-              transform: [{ rotate: '90deg' }],
-              marginHorizontal: -16,
-              marginTop: -10,
+              ...styles.rotatedText,
+              marginHorizontal: type == 'weight' ? -16 : -10,
             }}
           >
-            <BodyEmphasis>Weight</BodyEmphasis>
+            <BodyEmphasis>{yAxisLabel}</BodyEmphasis>
           </YellowText>
         </Column>
       </Row>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  offsetLeftMargin: { marginLeft: -10 },
+  alignFlexStart: { alignItems: 'flex-start' },
+  chartSize: { width: 250, height: 250, margin: 5 },
+  center: { justifyContent: 'center', alignContent: 'flex-end' },
+  rotatedText: {
+    transform: [{ rotate: '90deg' }],
+    marginTop: -10,
+  },
+});
