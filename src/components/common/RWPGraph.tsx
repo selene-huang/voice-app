@@ -1,4 +1,5 @@
-import React, { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Colors from '../../../assets/Colors';
 import { CartesianChart, Scatter, useChartPressState } from 'victory-native';
 import { Circle } from '@shopify/react-native-skia';
@@ -38,14 +39,16 @@ export function RWPGraph({
     y: { pitch: 0, weight: 0 },
   });
 
-  let maxValue, chartColor, yAxisLabel;
+  let maxValue, chartColor, yAxisLabel, units;
   if (type == 'weight') {
     yAxisLabel = 'Weight';
     maxValue = 100;
+    units = '%';
     chartColor = Colors.green;
   } else {
     yAxisLabel = 'Pitch';
     maxValue = 600;
+    units = 'Hz';
     chartColor = Colors.purple;
   }
 
@@ -61,20 +64,20 @@ export function RWPGraph({
 
   return (
     <View>
-      <CenteredRow style={styles.offsetLeftMargin}>
-        <YellowText>
-          <BodyEmphasis>{`Resonance `}</BodyEmphasis>
-        </YellowText>
-        <MaterialIcons
-          name="help"
-          size={16}
-          color={Colors.yellow}
-          onPress={openXAxisModal}
-        />
-      </CenteredRow>
+      <TouchableOpacity onPress={openXAxisModal}>
+        <CenteredRow>
+          <YellowText>
+            <BodyEmphasis>{`Resonance `}</BodyEmphasis>
+          </YellowText>
+          <MaterialIcons name="help" size={16} color={Colors.yellow} />
+        </CenteredRow>
+      </TouchableOpacity>
       <Row>
         <Column>
-          <BodyText>{maxValue}</BodyText>
+          <BodyText>
+            {maxValue}
+            {units}
+          </BodyText>
           <ColumnEnd>
             <BodyText>0</BodyText>
           </ColumnEnd>
@@ -137,26 +140,23 @@ export function RWPGraph({
           </LinearGradient>
           <Row>
             <LeftAlignContainer>
-              <BodyText>100</BodyText>
+              <BodyText>100%</BodyText>
             </LeftAlignContainer>
           </Row>
         </Column>
 
         <Column style={styles.center}>
-          <YellowText
-            style={{
-              ...styles.rotatedText,
-              marginHorizontal: type == 'weight' ? -25 : -19,
-            }}
-          >
-            <BodyEmphasis>{`${yAxisLabel} `}</BodyEmphasis>
-            <MaterialIcons
-              name="help"
-              size={16}
-              color={Colors.yellow}
-              onPress={openXAxisModal}
-            />
-          </YellowText>
+          <TouchableOpacity onPress={openYAxisModal}>
+            <YellowText
+              style={{
+                ...styles.rotateCW,
+                marginHorizontal: type == 'weight' ? -25 : -19,
+              }}
+            >
+              <BodyEmphasis>{`${yAxisLabel} `}</BodyEmphasis>
+              <MaterialIcons name="help" size={16} color={Colors.yellow} />
+            </YellowText>
+          </TouchableOpacity>
         </Column>
       </Row>
     </View>
@@ -164,11 +164,10 @@ export function RWPGraph({
 }
 
 const styles = StyleSheet.create({
-  offsetLeftMargin: { marginLeft: -10 },
   alignFlexStart: { alignItems: 'flex-start' },
   chartSize: { width: 250, height: 250, margin: 5 },
   center: { justifyContent: 'center' },
-  rotatedText: {
+  rotateCW: {
     transform: [{ rotate: '90deg' }],
     marginTop: -10,
   },

@@ -13,13 +13,36 @@ import {
   PurpleButton,
 } from '../../components/common/Buttons';
 import { RWPGraph } from '../../components/common/RWPGraph';
+import { PopUpModal } from '../../components/common/PopUpModal';
 
 export default function VoiceGoalsScreen({
   navigation,
 }: TrainingStackScreenProps<'Home'>) {
   const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
   const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
+
   const [showWeight, setShowWeight] = useState(true);
+  const [isModalVisible, setModalIsVisible] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalText, setModalText] = useState('');
+
+  const showXModal = () => {
+    setModalTitle('Resonance');
+    setModalText('All about resonance! More info coming soon.');
+    setModalIsVisible(true);
+  };
+
+  const showYModal = () => {
+    setModalTitle(showWeight ? 'Weight' : 'Pitch');
+    setModalText(
+      `All about ${showWeight ? 'weight' : 'pitch'}! More info coming soon.`
+    );
+    setModalIsVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalIsVisible(false);
+  };
 
   return (
     <SafeArea>
@@ -34,6 +57,8 @@ export default function VoiceGoalsScreen({
           <RWPGraph
             type={showWeight ? 'weight' : 'pitch'}
             points={DUMMY_DATA_2}
+            openXAxisModal={showXModal}
+            openYAxisModal={showYModal}
           />
         </ButtonContainer>
 
@@ -51,6 +76,14 @@ export default function VoiceGoalsScreen({
             }}
           />
         </ButtonContainer>
+
+        <PopUpModal
+          isVisible={isModalVisible}
+          title={modalTitle}
+          text={modalText}
+          yesOption="Close"
+          onYes={closeModal}
+        />
       </ScreenContainer>
     </SafeArea>
   );
