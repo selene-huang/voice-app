@@ -1,4 +1,3 @@
-import { Auth, Hub } from 'aws-amplify';
 import React, {
   createContext,
   useContext,

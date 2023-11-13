@@ -64,6 +64,7 @@ export function RWPGraph({ type, points }: RWPGraphProps) {
         <YellowText>
           <BodyEmphasis>Resonance</BodyEmphasis>
         </YellowText>
+        <Icon name="info-circle" size={15} color={Colors.cream} />
       </CenteredRow>
       <Row>
         <Column>

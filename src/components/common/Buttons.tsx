@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from 'styled-components/native';
-import React, { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Colors from '../../../assets/Colors';
 import { BodyText, ButtonText, YellowText } from '../../../assets/Fonts';
 import Icon from 'react-native-vector-icons/AntDesign';
