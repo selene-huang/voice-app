@@ -11,7 +11,7 @@ import {
 import { Circle, useFont } from '@shopify/react-native-skia';
 import { SharedValue } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
-import { BodyText } from '../../../assets/Fonts';
+import { BodyEmphasis, BodyText, YellowText } from '../../../assets/Fonts';
 import {
   CenteredRow,
   Column,
@@ -19,6 +19,7 @@ import {
   LeftAlignContainer,
   Row,
 } from './Containers';
+import { useState } from 'react';
 
 const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
 const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
@@ -26,6 +27,8 @@ const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
 export function RWPGraph() {
   // const font = useFont(DMSans, 12);
   const { state, isActive } = useChartPressState({ x: 0, y: { weight: 0 } });
+  const [showToolTip, setShowToolTip] = useState(false);
+
   function ToolTip({
     x,
     y,
@@ -38,31 +41,36 @@ export function RWPGraph() {
 
   return (
     <View>
-      <CenteredRow style={{ marginLeft: 20 }}></CenteredRow>
+      <CenteredRow style={{ marginLeft: -10 }}>
+        <YellowText>
+          <BodyEmphasis>Resonance</BodyEmphasis>
+        </YellowText>
+      </CenteredRow>
       <Row>
-        <Column style={{ justifyContent: 'center', marginLeft: -15 }}></Column>
         <Column>
           <BodyText>100</BodyText>
-          <BodyText
-            style={{ transform: [{ rotate: '270deg' }], marginTop: 100 }}
-          >
-            Weight
-          </BodyText>
           <ColumnEnd>
             <BodyText>0</BodyText>
           </ColumnEnd>
         </Column>
-        <Column>
+        <Column style={{ alignItems: 'flex-start' }}>
+          {isActive ? (
+            <View
+              style={{
+                backgroundColor: Colors.darkGray,
+                zIndex: 1,
+                position: 'absolute',
+                marginTop: 225 - 3 * DUMMY_DATA_1[0].weight,
+                marginLeft: 15 + 2 * DUMMY_DATA_1[0].resonance,
+              }}
+            >
+              <BodyText>{`(${DUMMY_DATA_1[0].resonance}, ${DUMMY_DATA_1[0].weight})`}</BodyText>
+            </View>
+          ) : null}
           <LinearGradient
             colors={[Colors.green, Colors.yellow]}
-            start={{
-              x: 0,
-              y: 1,
-            }}
-            end={{
-              x: 1,
-              y: 0,
-            }}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 0 }}
             style={{ width: 250, height: 250, margin: 5 }}
           >
             <CartesianChart
@@ -87,11 +95,21 @@ export function RWPGraph() {
             </CartesianChart>
           </LinearGradient>
           <Row>
-            <BodyText style={{ marginLeft: 90 }}>Resonance</BodyText>
             <LeftAlignContainer>
               <BodyText>100</BodyText>
             </LeftAlignContainer>
           </Row>
+        </Column>
+        <Column style={{ justifyContent: 'center' }}>
+          <YellowText
+            style={{
+              transform: [{ rotate: '90deg' }],
+              marginHorizontal: -16,
+              marginTop: -10,
+            }}
+          >
+            <BodyEmphasis>Weight</BodyEmphasis>
+          </YellowText>
         </Column>
       </Row>
     </View>

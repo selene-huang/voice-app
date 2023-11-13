@@ -19,6 +19,7 @@ async function loadResourcesAsync() {
     Font.loadAsync({
       'exo-semibold': require('./assets/Exo/static/Exo-SemiBold.ttf'),
       'dmsans-regular': require('./assets/DM_Sans/static/DMSans-Regular.ttf'),
+      'dmsans-bold': require('./assets/DM_Sans/static/DMSans-Bold.ttf'),
     }),
   ]);
 }

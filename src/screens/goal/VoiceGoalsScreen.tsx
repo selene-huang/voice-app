@@ -9,7 +9,11 @@ import {
 import { H1Heading, Title } from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { HomeButton } from '../../components/home/HomeButtons';
-import { BackButton, PurpleButton } from '../../components/common/Buttons';
+import {
+  BackButton,
+  GreenButton,
+  PurpleButton,
+} from '../../components/common/Buttons';
 import { RWPGraph } from '../../components/common/RWPGraph';
 
 export default function VoiceGoalsScreen({
@@ -32,6 +36,12 @@ export default function VoiceGoalsScreen({
         <ButtonContainer>
           <PurpleButton
             text="Save"
+            onPress={() => {
+              /* TODO */
+            }}
+          />
+          <GreenButton
+            text="View Resonance v. Pitch"
             onPress={() => {
               /* TODO */
             }}

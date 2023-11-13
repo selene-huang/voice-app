@@ -33,6 +33,14 @@ export const ButtonText = styled.Text`
   color: ${Colors.cream};
 `;
 
+export const BodyEmphasis = styled.Text`
+  font-family: 'dmsans-bold';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${Colors.cream};
+`;
+
 export const BodyText = styled.Text`
   font-family: 'dmsans-regular';
   font-style: normal;
