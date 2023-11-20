@@ -11,7 +11,7 @@ const HomeButtonBase = styled.TouchableOpacity`
   border-radius: 24px;
   width: 265px;
   padding: 11px;
-  margin-bottom: 11px;
+  margin-bottom: 20px;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 

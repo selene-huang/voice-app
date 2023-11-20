@@ -3,10 +3,19 @@ import {
   SafeArea,
   StartContainer,
   ButtonContainer,
+  ScreenContainer,
+  HeadingContainer,
 } from '../../components/common/Containers';
-import { Title } from '../../../assets/Fonts';
+import {
+  BodyText,
+  CenterText,
+  H1Heading,
+  Title,
+  YellowText,
+} from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { HomeButton } from '../../components/home/HomeButtons';
+import { styles } from './styles';
 
 export default function HomeScreen({
   navigation,
@@ -26,8 +35,13 @@ export default function HomeScreen({
 
   return (
     <SafeArea>
-      <StartContainer>
-        <Title>{'Hi!'}</Title>
+      <ScreenContainer>
+        <HeadingContainer>
+          {/* TODO: use user's preferred name? */}
+          <H1Heading>{'Hi!'}</H1Heading>
+        </HeadingContainer>
+
+        <BodyText>What would you like to do today?</BodyText>
 
         <ButtonContainer>
           <HomeButton
@@ -55,7 +69,15 @@ export default function HomeScreen({
             onPress={toProfile}
           />
         </ButtonContainer>
-      </StartContainer>
+
+        <ButtonContainer>
+          <CenterText>
+            <BodyText style={styles.underline}>
+              <YellowText>Report an Issue</YellowText>
+            </BodyText>
+          </CenterText>
+        </ButtonContainer>
+      </ScreenContainer>
     </SafeArea>
   );
 }
