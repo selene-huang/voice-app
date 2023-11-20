@@ -6,7 +6,10 @@ import {
   ScreenContainer,
 } from '../../components/common/Containers';
 import { BodyText, H1Heading } from '../../../assets/Fonts';
-import { TrainingStackScreenProps } from '../../navigation/types';
+import {
+  AuthStackScreenProps,
+  TrainingStackScreenProps,
+} from '../../navigation/types';
 import {
   BackButton,
   GreenButton,
@@ -15,9 +18,10 @@ import {
 import { RWPGraph } from '../../components/common/RWPGraph';
 import { PopUpModal } from '../../components/common/PopUpModal';
 
-export default function VoiceGoalsScreen({
+// TODO: upon login, navigate to this screen if a voice goal has not yet been set for this user
+export default function VoiceDesignScreen({
   navigation,
-}: TrainingStackScreenProps<'VoiceGoals'>) {
+}: AuthStackScreenProps<'VoiceDesign'>) {
   // TODO: remove dummy data and pass data in instead
   const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
   const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
@@ -51,10 +55,14 @@ export default function VoiceGoalsScreen({
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>Goal Setting</H1Heading>
+          <H1Heading>Let's get started!</H1Heading>
         </HeadingContainer>
 
-        <BodyText>What kind of voice are you working towards?</BodyText>
+        {/* TODO: replace placeholder text*/}
+        <BodyText>
+          [encourage users to play around and set goals by finding a voice that
+          they like. remind them that this can always be changed later.]
+        </BodyText>
 
         <ButtonContainer>
           <RWPGraph
