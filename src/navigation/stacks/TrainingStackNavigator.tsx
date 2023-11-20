@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { TrainingStackParamList } from '../types';
 import HomeScreen from '../../screens/home/HomeScreen';
+import VoiceGoalsScreen from '../../screens/goal/VoiceGoalsScreen';
 
 const TrainingStack = createNativeStackNavigator<TrainingStackParamList>();
 
@@ -16,6 +17,7 @@ export default function TrainingStackNavigator() {
       }}
     >
       <TrainingStack.Screen name="Home" component={HomeScreen} />
+      <TrainingStack.Screen name="VoiceGoals" component={VoiceGoalsScreen} />
     </TrainingStack.Navigator>
   );
 }

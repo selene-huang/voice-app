@@ -5,7 +5,7 @@ import {
   HeadingContainer,
   ScreenContainer,
 } from '../../components/common/Containers';
-import { H1Heading } from '../../../assets/Fonts';
+import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import {
   BackButton,
@@ -17,7 +17,8 @@ import { PopUpModal } from '../../components/common/PopUpModal';
 
 export default function VoiceGoalsScreen({
   navigation,
-}: TrainingStackScreenProps<'Home'>) {
+}: TrainingStackScreenProps<'VoiceGoals'>) {
+  // TODO: remove dummy data and pass data in instead
   const DUMMY_DATA_1 = [{ resonance: 60, weight: 10, pitch: 569 }];
   const DUMMY_DATA_2 = [{ resonance: 20, weight: 85, pitch: 204 }];
 
@@ -50,8 +51,10 @@ export default function VoiceGoalsScreen({
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>Welcome!</H1Heading>
+          <H1Heading>Goal Setting</H1Heading>
         </HeadingContainer>
+
+        <BodyText>What kind of voice are you working towards?</BodyText>
 
         <ButtonContainer>
           <RWPGraph
