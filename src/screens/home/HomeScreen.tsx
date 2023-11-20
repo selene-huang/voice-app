@@ -30,7 +30,10 @@ export default function HomeScreen({
     // TODO
   };
   const toProfile = () => {
-    // TODO
+    navigation.navigate('Profile');
+  };
+  const toReport = () => {
+    navigation.navigate('Report');
   };
 
   return (
@@ -72,7 +75,7 @@ export default function HomeScreen({
 
         <ButtonContainer>
           <CenterText>
-            <BodyText style={styles.underline}>
+            <BodyText style={styles.underline} onPress={toReport}>
               <YellowText>Report an Issue</YellowText>
             </BodyText>
           </CenterText>

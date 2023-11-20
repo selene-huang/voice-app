@@ -12,7 +12,7 @@ import {
   GreenButton,
   PurpleButton,
 } from '../../components/common/Buttons';
-import InputField from '../../components/auth/InputField';
+import InputField from '../../components/common/InputField';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';

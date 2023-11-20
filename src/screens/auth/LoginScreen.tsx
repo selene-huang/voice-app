@@ -13,7 +13,7 @@ import {
   H1Heading,
 } from '../../../assets/Fonts';
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
-import InputField from '../../components/auth/InputField';
+import InputField from '../../components/common/InputField';
 import { styles } from './styles';
 import { AuthStackScreenProps } from '../../navigation/types';
 import { Auth } from 'aws-amplify';

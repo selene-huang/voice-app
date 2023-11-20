@@ -18,6 +18,7 @@ export type TrainingStackParamList = {
   Profile: undefined;
   VoiceGoals: undefined;
   AccountDeleted: undefined;
+  Report: undefined;
 };
 
 export type TrainingStackScreenProps<T extends keyof TrainingStackParamList> =
