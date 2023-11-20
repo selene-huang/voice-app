@@ -17,8 +17,6 @@ import { TrainingStackScreenProps } from '../../navigation/types';
 import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';
-import Modal from 'react-native-modal';
-import { View } from 'react-native';
 
 export default function ProfileScreen({
   navigation,
@@ -57,7 +55,7 @@ export default function ProfileScreen({
       setDeleteAccountError('');
       //TODO: delete account
       setDeleteAccountIsVisible(false);
-      //TODO: navigate to account deletion
+      navigation.navigate('AccountDeleted');
     } else {
       setDeleteAccountError('The inputs do not match.');
     }
