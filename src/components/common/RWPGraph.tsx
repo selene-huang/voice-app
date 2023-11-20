@@ -74,7 +74,7 @@ export function RWPGraph({
       </TouchableOpacity>
       <Row>
         <Column>
-          <BodyText>
+          <BodyText style={styles.rotateCCW}>
             {maxValue}
             {units}
           </BodyText>
@@ -170,5 +170,10 @@ const styles = StyleSheet.create({
   rotateCW: {
     transform: [{ rotate: '90deg' }],
     marginTop: -10,
+  },
+  rotateCCW: {
+    transform: [{ rotate: '270deg' }],
+    marginRight: -10,
+    marginTop: 15,
   },
 });
