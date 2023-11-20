@@ -21,6 +21,7 @@ export default function DemographicsSurveyScreen({
 
   const onChangeAge = (value: string) => setAge(value);
   const onChangeGender = (value: string) => setGender(value);
+  // TODO: change region, voice goals, and training time to dropdowns
   const onChangeRegion = (value: string) => setRegion(value);
   const onChangeVoiceGoals = (value: string) => setVoiceGoals(value);
   const onChangeTrainingTime = (value: string) => setTrainingTime(value);

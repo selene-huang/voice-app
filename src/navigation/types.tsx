@@ -15,6 +15,7 @@ export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
 
 export type TrainingStackParamList = {
   Home: undefined;
+  Profile: undefined;
   VoiceGoals: undefined;
 };
 

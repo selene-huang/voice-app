@@ -8,6 +8,7 @@ type InputFieldProps = {
   value: string;
   secureTextEntry?: boolean;
   keyboardType?: KeyboardTypeOptions;
+  editable?: boolean;
 };
 
 export default function InputField({
@@ -15,6 +16,7 @@ export default function InputField({
   value,
   secureTextEntry = false,
   keyboardType = 'default',
+  editable = true,
 }: InputFieldProps) {
   const [isActive, setIsActive] = useState(false);
 
@@ -32,6 +34,7 @@ export default function InputField({
       autoCapitalize="none"
       keyboardType={keyboardType}
       returnKeyType="done"
+      editable={editable}
     />
   );
 }
