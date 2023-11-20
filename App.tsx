@@ -7,8 +7,6 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { AuthContextProvider } from './src/screens/auth/AuthContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
-import HomeScreen from './src/screens/home/HomeScreen';
-import ReportScreen from './src/screens/home/ReportScreen';
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources

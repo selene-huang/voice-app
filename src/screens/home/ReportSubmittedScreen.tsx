@@ -11,6 +11,7 @@ import {
   BodyText,
   CenterText,
   H1Heading,
+  H2Heading,
   LightPurpleText,
   Title,
   YellowText,
@@ -31,35 +32,13 @@ export default function ReportSubmittedScreen({
 
   return (
     <SafeArea>
-      <BackButton navigation={navigation} onPress={toHome} />
-
-      <ScreenContainer>
-        <HeadingContainer>
-          <H1Heading>Report an Issue</H1Heading>
-        </HeadingContainer>
-
-        <BodyText>
-          If any harm has come to you from the use of this app; if you would
-          like to report a bug; or you have any other kind of feedback, leave a
-          message below! All feedback will remain anonymous.
-        </BodyText>
-
-        <ButtonContainer>
-          <View style={{ height: 210 }}>
-            <CenterText>
-              <BodyEmphasis>
-                <LightPurpleText>
-                  Your report has been submitted.
-                </LightPurpleText>
-              </BodyEmphasis>
-            </CenterText>
-          </View>
-        </ButtonContainer>
+      <StartContainer>
+        <H2Heading>Your report has been submitted.</H2Heading>
 
         <ButtonContainer>
           <PurpleButton text="Return to Home Screen" onPress={toHome} />
         </ButtonContainer>
-      </ScreenContainer>
+      </StartContainer>
     </SafeArea>
   );
 }

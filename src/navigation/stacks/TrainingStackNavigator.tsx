@@ -6,6 +6,7 @@ import VoiceGoalsScreen from '../../screens/goal/VoiceGoalsScreen';
 import ProfileScreen from '../../screens/profile/ProfileScreen';
 import AccountDeletedScreen from '../../screens/profile/AccountDeletedScreen';
 import ReportScreen from '../../screens/home/ReportScreen';
+import ReportSubmittedScreen from '../../screens/home/ReportSubmittedScreen';
 
 const TrainingStack = createNativeStackNavigator<TrainingStackParamList>();
 
@@ -27,6 +28,10 @@ export default function TrainingStackNavigator() {
         component={AccountDeletedScreen}
       />
       <TrainingStack.Screen name="Report" component={ReportScreen} />
+      <TrainingStack.Screen
+        name="ReportSubmitted"
+        component={ReportSubmittedScreen}
+      />
     </TrainingStack.Navigator>
   );
 }

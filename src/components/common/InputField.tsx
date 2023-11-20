@@ -45,6 +45,7 @@ export default function InputField({
       returnKeyType="done"
       editable={editable}
       multiline={multiline}
+      textAlignVertical="top"
     />
   );
 }
