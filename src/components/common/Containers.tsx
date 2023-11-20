@@ -22,6 +22,7 @@ export const HeadingContainer = styled.View`
 
 export const ScreenContainer = styled.View`
   padding-horizontal: 47px;
+  min-width: 275px;
 `;
 
 export const ButtonContainer = styled.View`
@@ -56,6 +57,14 @@ export const Row = styled.View`
 `;
 
 export const LeftAlignContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+`;
+
+export const RightAlignContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;

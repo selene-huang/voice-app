@@ -69,12 +69,20 @@ export const PurpleText = styled.Text`
   color: ${Colors.purple};
 `;
 
+export const LightGrayText = styled.Text`
+  color: ${Colors.lightGray};
+`;
+
 export const MidGrayText = styled.Text`
   color: ${Colors.midGray};
 `;
 
 export const DarkGrayText = styled.Text`
   color: ${Colors.darkGray};
+`;
+
+export const RedText = styled.Text`
+  color: ${Colors.red};
 `;
 
 export const CenterText = styled.Text`

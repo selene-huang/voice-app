@@ -8,6 +8,8 @@ type InputFieldProps = {
   value: string;
   secureTextEntry?: boolean;
   keyboardType?: KeyboardTypeOptions;
+  editable?: boolean;
+  width?: number;
 };
 
 export default function InputField({
@@ -15,8 +17,13 @@ export default function InputField({
   value,
   secureTextEntry = false,
   keyboardType = 'default',
+  editable = true,
+  width = 275,
 }: InputFieldProps) {
   const [isActive, setIsActive] = useState(false);
+  var style = isActive
+    ? { ...styles.isActive, width: width }
+    : { ...styles.isInactive, width: width };
 
   return (
     <TextInput
@@ -25,13 +32,14 @@ export default function InputField({
       }}
       onFocus={() => setIsActive(true)}
       onChangeText={onChange}
-      style={isActive ? styles.isActive : styles.isInactive}
+      style={style}
       value={value}
       secureTextEntry={secureTextEntry}
       autoCorrect={false}
       autoCapitalize="none"
       keyboardType={keyboardType}
       returnKeyType="done"
+      editable={editable}
     />
   );
 }

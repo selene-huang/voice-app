@@ -3,6 +3,8 @@ import React from 'react';
 import { TrainingStackParamList } from '../types';
 import HomeScreen from '../../screens/home/HomeScreen';
 import VoiceGoalsScreen from '../../screens/goal/VoiceGoalsScreen';
+import ProfileScreen from '../../screens/profile/ProfileScreen';
+import AccountDeletedScreen from '../../screens/profile/AccountDeletedScreen';
 
 const TrainingStack = createNativeStackNavigator<TrainingStackParamList>();
 
@@ -17,7 +19,12 @@ export default function TrainingStackNavigator() {
       }}
     >
       <TrainingStack.Screen name="Home" component={HomeScreen} />
+      <TrainingStack.Screen name="Profile" component={ProfileScreen} />
       <TrainingStack.Screen name="VoiceGoals" component={VoiceGoalsScreen} />
+      <TrainingStack.Screen
+        name="AccountDeleted"
+        component={AccountDeletedScreen}
+      />
     </TrainingStack.Navigator>
   );
 }
