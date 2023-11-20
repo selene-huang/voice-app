@@ -60,6 +60,7 @@ export default function ProfileScreen({
           onPress={() => {
             navigation.navigate('VoiceGoals');
           }}
+          disabled={editing}
         />
 
         <SelectField
@@ -68,6 +69,7 @@ export default function ProfileScreen({
           onPress={() => {
             // TODO: navigate to account deletion
           }}
+          disabled={editing}
         />
 
         <ButtonContainer>
@@ -76,9 +78,9 @@ export default function ProfileScreen({
             text={editing ? 'Save' : 'Edit Profile'}
           />
           {editing ? (
-            <GrayButton onPress={} text="Discard Changes" />
+            <GrayButton onPress={() => {}} text="Discard Changes" />
           ) : (
-            <GreenButton onPress={} text="Sign out" />
+            <GreenButton onPress={() => {}} text="Sign out" />
           )}
         </ButtonContainer>
       </ScreenContainer>

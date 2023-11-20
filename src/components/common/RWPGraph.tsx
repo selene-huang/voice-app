@@ -11,7 +11,7 @@ import {
   CenteredRow,
   Column,
   ColumnEnd,
-  LeftAlignContainer,
+  RightAlignContainer,
   Row,
 } from './Containers';
 
@@ -139,9 +139,9 @@ export function RWPGraph({
             </CartesianChart>
           </LinearGradient>
           <Row>
-            <LeftAlignContainer>
+            <RightAlignContainer>
               <BodyText>100%</BodyText>
-            </LeftAlignContainer>
+            </RightAlignContainer>
           </Row>
         </Column>
 

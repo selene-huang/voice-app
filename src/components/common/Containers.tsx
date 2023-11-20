@@ -55,7 +55,7 @@ export const Row = styled.View`
   width: 100%;
 `;
 
-export const LeftAlignContainer = styled.View`
+export const RightAlignContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
