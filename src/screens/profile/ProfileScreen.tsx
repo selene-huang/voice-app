@@ -16,6 +16,9 @@ import InputField from '../../components/auth/InputField';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';
+import { PopUpModal } from '../../components/common/PopUpModal';
+import Modal from 'react-native-modal';
+import { View } from 'react-native';
 
 export default function ProfileScreen({
   navigation,
@@ -25,6 +28,11 @@ export default function ProfileScreen({
   const [voiceGoals, setVoiceGoals] = useState('');
   // TODO: fetch name & goals from database
 
+  const [unsavedChangesIsVisible, setUnsavedChangesIsVisible] = useState(false);
+  const [deleteAccountIsVisible, setDeleteAccountIsVisible] = useState(false);
+  const [deleteAccountInput, setDeleteAccountInput] = useState('');
+  const [deleteAccountError, setDeleteAccountError] = useState('');
+
   const onChangeName = (value: string) => setName(value);
   // TODO: change to dropdown
   const onChangeVoiceGoals = (value: string) => setVoiceGoals(value);
@@ -33,9 +41,39 @@ export default function ProfileScreen({
     setEditing(!editing);
   };
 
+  const toggleUnsavedChanges = () => {
+    setUnsavedChangesIsVisible(!unsavedChangesIsVisible);
+  };
+  const discardChanges = () => {
+    navigation.goBack();
+    setUnsavedChangesIsVisible(false);
+  };
+
+  const onInputChange = (text: string) => {
+    setDeleteAccountInput(text);
+  };
+  const deleteAccount = () => {
+    if (name === deleteAccountInput) {
+      setDeleteAccountError('');
+      //TODO: delete account
+      setDeleteAccountIsVisible(false);
+      //TODO: navigate to account deletion
+    } else {
+      setDeleteAccountError('The inputs do not match.');
+    }
+  };
+  const openDeleteAccountModal = () => {
+    setDeleteAccountIsVisible(true);
+  };
+  const closeDeleteAccountModal = () => {
+    setDeleteAccountInput('');
+    setDeleteAccountError('');
+    setDeleteAccountIsVisible(false);
+  };
+
   return (
     <SafeArea>
-      <BackButton navigation={navigation} />
+      <BackButton navigation={navigation} onPress={toggleUnsavedChanges} />
 
       <ScreenContainer>
         <HeadingContainer>
@@ -66,9 +104,7 @@ export default function ProfileScreen({
         <SelectField
           text="Delete my account"
           color={Colors.cream}
-          onPress={() => {
-            // TODO: navigate to account deletion
-          }}
+          onPress={openDeleteAccountModal}
           disabled={editing}
         />
 
@@ -84,6 +120,30 @@ export default function ProfileScreen({
           )}
         </ButtonContainer>
       </ScreenContainer>
+
+      <PopUpModal
+        isVisible={unsavedChangesIsVisible}
+        title="You have unsaved changes"
+        text="Are you sure you want to discard your changes?"
+        yesOption="Confirm"
+        noOption="Cancel"
+        onYes={discardChanges}
+        onNo={toggleUnsavedChanges}
+      />
+
+      <PopUpModal
+        isVisible={deleteAccountIsVisible}
+        title="Are you sure you want to delete your account?"
+        text={`This will delete all your history, personal information, and goals. This action is irreversible.\n
+        Type your name to confirm.`}
+        yesOption="Confirm"
+        noOption="Cancel"
+        onYes={deleteAccount}
+        onNo={closeDeleteAccountModal}
+        input={deleteAccountInput}
+        onInputChange={onInputChange}
+        errorText={deleteAccountError}
+      />
     </SafeArea>
   );
 }

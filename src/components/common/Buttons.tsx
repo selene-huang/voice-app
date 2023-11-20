@@ -79,14 +79,19 @@ const BackButtonBase = styled.TouchableOpacity`
 
 type BackButtonProps = {
   navigation: any;
+  onPress?: () => void;
 };
 
-export function BackButton({ navigation }: BackButtonProps) {
+export function BackButton({ navigation, onPress }: BackButtonProps) {
   return (
     <BackButtonContainer>
       <BackButtonBase
         onPress={() => {
-          navigation.goBack();
+          if (onPress) {
+            onPress();
+          } else {
+            navigation.goBack();
+          }
         }}
       >
         <BodyText>
