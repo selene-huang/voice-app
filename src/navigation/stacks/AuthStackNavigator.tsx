@@ -7,6 +7,7 @@ import SignUpScreen from '../../screens/auth/SignUpScreen';
 import DemographicsSurveyScreen from '../../screens/auth/DemographicsSurveyScreen';
 import DataCollectionPolicyScreen from '../../screens/auth/DataCollectionPolicyScreen';
 import EmailConfirmationScreen from '../../screens/auth/EmailConfirmationScreen';
+import VoiceDesignScreen from '../../screens/auth/VoiceDesignScreen';
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -35,6 +36,7 @@ export default function AuthStackNavigator() {
         name="EmailConfirmation"
         component={EmailConfirmationScreen}
       />
+      <AuthStack.Screen name="VoiceDesign" component={VoiceDesignScreen} />
     </AuthStack.Navigator>
   );
 }

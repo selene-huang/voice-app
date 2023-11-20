@@ -33,6 +33,14 @@ export const ButtonText = styled.Text`
   color: ${Colors.cream};
 `;
 
+export const BodyEmphasis = styled.Text`
+  font-family: 'dmsans-bold';
+  font-style: normal;
+  font-size: 17px;
+  line-height: 24px;
+  color: ${Colors.cream};
+`;
+
 export const BodyText = styled.Text`
   font-family: 'dmsans-regular';
   font-style: normal;
@@ -55,6 +63,14 @@ export const YellowText = styled.Text`
 
 export const LightPurpleText = styled.Text`
   color: ${Colors.lightPurple};
+`;
+
+export const PurpleText = styled.Text`
+  color: ${Colors.purple};
+`;
+
+export const MidGrayText = styled.Text`
+  color: ${Colors.midGray};
 `;
 
 export const DarkGrayText = styled.Text`

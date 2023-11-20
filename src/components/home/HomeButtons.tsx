@@ -1,7 +1,7 @@
+import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
 import Colors from '../../../assets/Colors';
-import { ButtonText, DarkGrayText } from '../../../assets/Fonts';
+import { ButtonText } from '../../../assets/Fonts';
 import { MaterialIcons } from '@expo/vector-icons';
 import { CenteredRow } from '../common/Containers';
 

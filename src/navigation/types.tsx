@@ -7,6 +7,7 @@ export type AuthStackParamList = {
   DemographicsSurvey: undefined;
   DataCollection: undefined;
   EmailConfirmation: undefined;
+  VoiceDesign: undefined;
 };
 
 export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
@@ -14,6 +15,7 @@ export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
 
 export type TrainingStackParamList = {
   Home: undefined;
+  VoiceGoals: undefined;
 };
 
 export type TrainingStackScreenProps<T extends keyof TrainingStackParamList> =
