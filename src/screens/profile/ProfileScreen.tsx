@@ -112,7 +112,7 @@ export default function ProfileScreen({
             text={editing ? 'Save' : 'Edit Profile'}
           />
           {editing ? (
-            <GrayButton onPress={() => {}} text="Discard Changes" />
+            <GrayButton onPress={toggleEdit} text="Discard Changes" />
           ) : (
             <GreenButton onPress={() => {}} text="Sign out" />
           )}
