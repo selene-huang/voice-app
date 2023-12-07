@@ -10,6 +10,8 @@ type InputFieldProps = {
   keyboardType?: KeyboardTypeOptions;
   editable?: boolean;
   width?: number;
+  multiline?: boolean;
+  height?: number;
 };
 
 export default function InputField({
@@ -19,11 +21,13 @@ export default function InputField({
   keyboardType = 'default',
   editable = true,
   width = 275,
+  multiline = false,
+  height = 30,
 }: InputFieldProps) {
   const [isActive, setIsActive] = useState(false);
   var style = isActive
-    ? { ...styles.isActive, width: width }
-    : { ...styles.isInactive, width: width };
+    ? { ...styles.isActive, width, height }
+    : { ...styles.isInactive, width, height };
 
   return (
     <TextInput
@@ -40,6 +44,8 @@ export default function InputField({
       keyboardType={keyboardType}
       returnKeyType="done"
       editable={editable}
+      multiline={multiline}
+      textAlignVertical="top"
     />
   );
 }

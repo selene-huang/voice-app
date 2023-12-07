@@ -19,7 +19,7 @@ import {
   RightAlignContainer,
   Row,
 } from './Containers';
-import InputField from '../auth/InputField';
+import InputField from './InputField';
 
 type PopUpModalProps = {
   isVisible: boolean;
