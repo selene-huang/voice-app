@@ -60,10 +60,9 @@ export default function LoginScreen({
           <H1Heading>Welcome back!</H1Heading>
         </HeadingContainer>
 
-        <BodyText>Email</BodyText>
-        <InputField value={email} onChange={onChangeEmail} />
-        <BodyText>Password</BodyText>
+        <InputField label="Email" value={email} onChange={onChangeEmail} />
         <InputField
+          label="Password"
           value={password}
           onChange={onChangePassword}
           secureTextEntry={true}
