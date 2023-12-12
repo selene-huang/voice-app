@@ -21,13 +21,13 @@ export default function HomeScreen({
   navigation,
 }: TrainingStackScreenProps<'Home'>) {
   const toEarTraining = () => {
-    // TODO
+    navigation.navigate('EarTraining');
   };
   const toVoiceTraining = () => {
     // TODO
   };
   const toVocalPractice = () => {
-    // TODO
+    navigation.navigate('VoicePractice');
   };
   const toProfile = () => {
     navigation.navigate('Profile');

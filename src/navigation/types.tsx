@@ -21,7 +21,7 @@ export type TrainingStackParamList = {
   Report: undefined;
   ReportSubmitted: undefined;
   EarTraining: undefined;
-  VoicePractice: undefined;
+  VocalPractice: undefined;
 };
 
 export type TrainingStackScreenProps<T extends keyof TrainingStackParamList> =

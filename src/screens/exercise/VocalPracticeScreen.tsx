@@ -11,9 +11,9 @@ import { View } from 'react-native';
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import Colors from '../../../assets/Colors';
 
-export default function ExerciseTemplate({
+export default function VocalPracticeScreen({
   navigation,
-}: TrainingStackScreenProps<'VoicePractice'>) {
+}: TrainingStackScreenProps<'VocalPractice'>) {
   const navigateToNextScreen = () => {
     // TODO: replace with actual navigation
   };

@@ -8,7 +8,7 @@ import AccountDeletedScreen from '../../screens/profile/AccountDeletedScreen';
 import ReportScreen from '../../screens/home/ReportScreen';
 import ReportSubmittedScreen from '../../screens/home/ReportSubmittedScreen';
 import EarTrainingScreen from '../../screens/exercise/EarTrainingScreen';
-import VoicePracticeScreen from '../../screens/exercise/VoicePracticeScreen';
+import VocalPracticeScreen from '../../screens/exercise/VocalPracticeScreen';
 
 const TrainingStack = createNativeStackNavigator<TrainingStackParamList>();
 
@@ -36,8 +36,8 @@ export default function TrainingStackNavigator() {
       />
       <TrainingStack.Screen name="EarTraining" component={EarTrainingScreen} />
       <TrainingStack.Screen
-        name="VoicePractice"
-        component={VoicePracticeScreen}
+        name="VocalPractice"
+        component={VocalPracticeScreen}
       />
     </TrainingStack.Navigator>
   );
