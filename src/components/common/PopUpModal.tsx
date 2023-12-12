@@ -69,27 +69,35 @@ export function PopUpModal({
           ) : null}
           <BodyText style={styles.bottomSpace} />
 
-          <CenteredRow>
-            <LeftAlignContainer style={{ marginLeft: 20 }}>
-              <TouchableOpacity onPress={onYes}>
-                <BodyText>
-                  <PurpleText>{yesOption}</PurpleText>
-                </BodyText>
-              </TouchableOpacity>
-            </LeftAlignContainer>
+          {noOption ? (
+            <CenteredRow>
+              <LeftAlignContainer style={{ marginLeft: 20 }}>
+                <TouchableOpacity onPress={onYes}>
+                  <BodyText>
+                    <PurpleText>{yesOption}</PurpleText>
+                  </BodyText>
+                </TouchableOpacity>
+              </LeftAlignContainer>
 
-            <BodyText selectable={false}>
-              <LightGrayText>|</LightGrayText>
-            </BodyText>
+              <BodyText selectable={false} style={{ width: 'auto' }}>
+                <LightGrayText>|</LightGrayText>
+              </BodyText>
 
-            <RightAlignContainer style={{ marginRight: 20 }}>
-              <TouchableOpacity onPress={onNo}>
-                <BodyText>
-                  <MidGrayText>{noOption}</MidGrayText>
-                </BodyText>
-              </TouchableOpacity>
-            </RightAlignContainer>
-          </CenteredRow>
+              <RightAlignContainer style={{ marginRight: 20 }}>
+                <TouchableOpacity onPress={onNo}>
+                  <BodyText>
+                    <MidGrayText>{noOption}</MidGrayText>
+                  </BodyText>
+                </TouchableOpacity>
+              </RightAlignContainer>
+            </CenteredRow>
+          ) : (
+            <TouchableOpacity onPress={onYes}>
+              <BodyText>
+                <PurpleText>{yesOption}</PurpleText>
+              </BodyText>
+            </TouchableOpacity>
+          )}
         </View>
       </Modal>
     </View>

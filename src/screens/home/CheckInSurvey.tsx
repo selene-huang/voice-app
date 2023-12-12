@@ -4,8 +4,9 @@ import {
   HeadingContainer,
   SafeArea,
   ButtonContainer,
+  Row,
 } from '../../components/common/Containers';
-import { BodyText, H1Heading } from '../../../assets/Fonts';
+import { BodyText, H1Heading, YellowText } from '../../../assets/Fonts';
 import {
   BackButton,
   GrayButton,
@@ -17,130 +18,74 @@ import { TrainingStackScreenProps } from '../../navigation/types';
 import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';
+import Slider from '@react-native-community/slider';
+import { MaterialIcons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function CheckInSurveyScreen({
   navigation,
 }: TrainingStackScreenProps<'CheckInSurvey'>) {
-  const [editing, setEditing] = useState(false);
+  // TODO: fetch name from database
   const [name, setName] = useState('');
-  const [voiceGoals, setVoiceGoals] = useState('');
-  // TODO: fetch name & goals from database
+  const [trainingTime, setTrainingTime] = useState('');
+  const [dialogueIsVisible, setDialogueIsVisible] = useState(false);
 
-  const [unsavedChangesIsVisible, setUnsavedChangesIsVisible] = useState(false);
-  const [deleteAccountIsVisible, setDeleteAccountIsVisible] = useState(false);
-  const [deleteAccountInput, setDeleteAccountInput] = useState('');
-  const [deleteAccountError, setDeleteAccountError] = useState('');
+  const toHomeScreen = () => {
+    navigation.navigate('Home');
+  };
 
-  const onChangeName = (value: string) => setName(value);
   // TODO: change to dropdown
-  const onChangeVoiceGoals = (value: string) => setVoiceGoals(value);
+  const onChangeTrainingTime = (value: string) => setTrainingTime(value);
 
-  const toggleEdit = () => {
-    setEditing(!editing);
-  };
-
-  const toggleUnsavedChanges = () => {
-    setUnsavedChangesIsVisible(!unsavedChangesIsVisible);
-  };
-  const discardChanges = () => {
-    navigation.goBack();
-    setUnsavedChangesIsVisible(false);
-  };
-
-  const onInputChange = (text: string) => {
-    setDeleteAccountInput(text);
-  };
-  const deleteAccount = () => {
-    if (name === deleteAccountInput) {
-      setDeleteAccountError('');
-      //TODO: delete account
-      setDeleteAccountIsVisible(false);
-      navigation.navigate('AccountDeleted');
-    } else {
-      setDeleteAccountError('The inputs do not match.');
-    }
-  };
-  const openDeleteAccountModal = () => {
-    setDeleteAccountIsVisible(true);
-  };
-  const closeDeleteAccountModal = () => {
-    setDeleteAccountInput('');
-    setDeleteAccountError('');
-    setDeleteAccountIsVisible(false);
+  const toggleDialogue = () => {
+    setDialogueIsVisible(!dialogueIsVisible);
   };
 
   return (
     <SafeArea>
-      <BackButton navigation={navigation} onPress={toggleUnsavedChanges} />
-
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>
-            {editing ? 'Your Profile' : 'Edit Your Profile'}
-          </H1Heading>
+          <H1Heading>Check-in Survey</H1Heading>
         </HeadingContainer>
 
-        <BodyText>Preferred Name</BodyText>
-        <InputField value={name} onChange={onChangeName} editable={editing} />
+        {/* TODO: replace with user's name*/}
+        <BodyText>
+          {`Hi, [name], it looks like you've been using our app for a while! Mind filling out a quick check-in survey?
+          \n1. On a scale from 1-10, how satisfied are you with your current voice?`}
+        </BodyText>
 
-        <BodyText>Voice Goals</BodyText>
-        <InputField
-          value={voiceGoals}
-          onChange={onChangeVoiceGoals}
-          editable={editing}
-        />
+        <Row style={{ marginTop: 20, marginBottom: 30 }}>
+          <Icon name="frowno" size={24} color={Colors.lightPurple} />
+          <Slider
+            style={{ width: 265, height: 40 }}
+            minimumValue={1}
+            maximumValue={10}
+            minimumTrackTintColor={Colors.yellow}
+            maximumTrackTintColor={Colors.yellow}
+            thumbTintColor={Colors.green}
+            step={1}
+          />
+          <Icon name="smileo" size={24} color={Colors.lightGreen} />
+        </Row>
 
-        <SelectField
-          text="Edit my voice goals"
-          color={Colors.lightPurple}
-          onPress={() => {
-            navigation.navigate('VoiceGoals');
-          }}
-          disabled={editing}
-        />
-
-        <SelectField
-          text="Delete my account"
-          color={Colors.cream}
-          onPress={openDeleteAccountModal}
-          disabled={editing}
-        />
+        <BodyText>2. How long have you been voice training?</BodyText>
+        {/* TODO: replace with dropdown */}
+        <InputField value={trainingTime} onChange={onChangeTrainingTime} />
 
         <ButtonContainer>
-          <PurpleButton
-            onPress={toggleEdit}
-            text={editing ? 'Save' : 'Edit Profile'}
-          />
-          {editing ? (
-            <GrayButton onPress={toggleEdit} text="Discard Changes" />
-          ) : (
-            <GreenButton onPress={() => {}} text="Sign out" />
-          )}
+          <PurpleButton onPress={toHomeScreen} text="Submit" />
+          <GrayButton onPress={toggleDialogue} text="Quit" />
         </ButtonContainer>
       </ScreenContainer>
 
       <PopUpModal
-        isVisible={unsavedChangesIsVisible}
-        title="You have unsaved changes"
-        text="Are you sure you want to discard your changes?"
+        isVisible={dialogueIsVisible}
+        title="Are you sure you want to discard this survey?"
+        text={`Your participation means a lot to us, and helps us collect data for research and improve the app.`}
         yesOption="Confirm"
         noOption="Cancel"
-        onYes={discardChanges}
-        onNo={toggleUnsavedChanges}
-      />
-
-      <PopUpModal
-        isVisible={deleteAccountIsVisible}
-        title="Are you sure you want to delete your account?"
-        text={`This will delete all your history, personal information, and goals. This action is irreversible.\n
-        Type your name to confirm.`}
-        yesOption="Confirm"
-        noOption="Cancel"
-        onYes={deleteAccount}
-        onNo={closeDeleteAccountModal}
-        input={deleteAccountInput}
-        onInputChange={onInputChange}
-        errorText={deleteAccountError}
+        onYes={toHomeScreen}
+        onNo={toggleDialogue}
       />
     </SafeArea>
   );
