@@ -14,14 +14,25 @@ import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';
 import Slider from '@react-native-community/slider';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Dropdown from '../../components/common/Dropdown';
 
 export default function CheckInSurveyScreen({
   navigation,
 }: TrainingStackScreenProps<'CheckInSurvey'>) {
   // TODO: fetch name from database
   const [name, setName] = useState('');
-  const [trainingTime, setTrainingTime] = useState('');
   const [dialogueIsVisible, setDialogueIsVisible] = useState(false);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [trainingTime, setTrainingTime] = useState(null);
+  const [dropdownItems, setDropdownItems] = useState([
+    { label: '<1 month', value: '<1 month' },
+    { label: '1-3 months', value: '1-3 months' },
+    { label: '3-6 months', value: '3-6 months' },
+    { label: '6 months-1 year', value: '6 months-1 year' },
+    { label: '1-2 years', value: '1-2 years' },
+    { label: '>2 years', value: '>2 years' },
+  ]);
 
   const toHomeScreen = () => {
     navigation.navigate('Home');
@@ -30,9 +41,6 @@ export default function CheckInSurveyScreen({
   const toSubmissionScreen = () => {
     navigation.navigate('CheckInSurveySubmitted');
   };
-
-  // TODO: change to dropdown
-  const onChangeTrainingTime = (value: string) => setTrainingTime(value);
 
   const toggleDialogue = () => {
     setDialogueIsVisible(!dialogueIsVisible);
@@ -66,8 +74,14 @@ export default function CheckInSurveyScreen({
         </Row>
 
         <BodyText>2. How long have you been voice training?</BodyText>
-        {/* TODO: replace with dropdown */}
-        <InputField value={trainingTime} onChange={onChangeTrainingTime} />
+        <Dropdown
+          open={dropdownOpen}
+          setOpen={setDropdownOpen}
+          value={trainingTime}
+          setValue={setTrainingTime}
+          items={dropdownItems}
+          setItems={setDropdownItems}
+        />
 
         <ButtonContainer>
           <PurpleButton onPress={toSubmissionScreen} text="Submit" />
