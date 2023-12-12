@@ -7,7 +7,6 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { AuthContextProvider } from './src/screens/auth/AuthContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
-import VoicePracticeScreen from './src/screens/exercise/VoicePracticeScreen';
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources
@@ -60,8 +59,7 @@ export default function App() {
   return resourcesIsLoaded ? (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <AuthContextProvider>
-        {/* <AppNavigator /> */}
-        <VoicePracticeScreen />
+        <AppNavigator />
       </AuthContextProvider>
     </View>
   ) : null;
