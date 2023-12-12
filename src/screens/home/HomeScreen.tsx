@@ -54,13 +54,13 @@ export default function HomeScreen({
           <HomeButton
             color="green"
             icon="fitness-center"
-            text="Voice Training"
+            text="Vocal Training"
             onPress={toVocalTraining}
           />
           <HomeButton
             color="lightGreen"
             icon="mic"
-            text="Vocal Practice"
+            text="Voice Practice"
             onPress={toVoicePractice}
           />
           <HomeButton
