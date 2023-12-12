@@ -9,7 +9,8 @@ import ReportScreen from '../../screens/home/ReportScreen';
 import ReportSubmittedScreen from '../../screens/home/ReportSubmittedScreen';
 import EarTrainingScreen from '../../screens/exercise/EarTrainingScreen';
 import VoicePracticeScreen from '../../screens/exercise/VoicePracticeScreen';
-import CheckInSurveyScreen from '../../screens/home/CheckInSurvey';
+import CheckInSurveyScreen from '../../screens/home/CheckInSurveyScreen';
+import CheckInSurveySubmittedScreen from '../../screens/home/CheckInSurveySubmittedScreen';
 
 const TrainingStack = createNativeStackNavigator<TrainingStackParamList>();
 
@@ -44,7 +45,10 @@ export default function TrainingStackNavigator() {
         name="CheckInSurvey"
         component={CheckInSurveyScreen}
       />
-      {/* <TrainingStack.Screen name="CheckInSurveySubmitted" component={} /> */}
+      <TrainingStack.Screen
+        name="CheckInSurveySubmitted"
+        component={CheckInSurveySubmittedScreen}
+      />
     </TrainingStack.Navigator>
   );
 }

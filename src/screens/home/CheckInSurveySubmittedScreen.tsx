@@ -3,14 +3,15 @@ import {
   SafeArea,
   StartContainer,
   ButtonContainer,
+  HeadingContainer,
 } from '../../components/common/Containers';
-import { H2Heading } from '../../../assets/Fonts';
+import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { PurpleButton } from '../../components/common/Buttons';
 
-export default function ReportSubmittedScreen({
+export default function CheckInSurveySubmittedScreen({
   navigation,
-}: TrainingStackScreenProps<'ReportSubmitted'>) {
+}: TrainingStackScreenProps<'CheckInSurveySubmitted'>) {
   const toHome = () => {
     navigation.navigate('Home');
   };
@@ -18,10 +19,15 @@ export default function ReportSubmittedScreen({
   return (
     <SafeArea>
       <StartContainer>
-        <H2Heading>Your report has been submitted.</H2Heading>
+        <HeadingContainer>
+          <H1Heading>{'Survey\nsubmitted.'}</H1Heading>
+        </HeadingContainer>
+        <BodyText>
+          {'Thanks for taking the time to help\nfurther our research!'}
+        </BodyText>
 
         <ButtonContainer>
-          <PurpleButton text="Return to Home Screen" onPress={toHome} />
+          <PurpleButton text="Next" onPress={toHome} />
         </ButtonContainer>
       </StartContainer>
     </SafeArea>

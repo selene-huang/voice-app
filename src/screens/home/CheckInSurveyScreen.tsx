@@ -6,20 +6,13 @@ import {
   ButtonContainer,
   Row,
 } from '../../components/common/Containers';
-import { BodyText, H1Heading, YellowText } from '../../../assets/Fonts';
-import {
-  BackButton,
-  GrayButton,
-  GreenButton,
-  PurpleButton,
-} from '../../components/common/Buttons';
+import { BodyText, H1Heading } from '../../../assets/Fonts';
+import { GrayButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/common/InputField';
 import { TrainingStackScreenProps } from '../../navigation/types';
-import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';
 import Slider from '@react-native-community/slider';
-import { MaterialIcons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function CheckInSurveyScreen({
@@ -32,6 +25,10 @@ export default function CheckInSurveyScreen({
 
   const toHomeScreen = () => {
     navigation.navigate('Home');
+  };
+
+  const toSubmissionScreen = () => {
+    navigation.navigate('CheckInSurveySubmitted');
   };
 
   // TODO: change to dropdown
@@ -73,7 +70,7 @@ export default function CheckInSurveyScreen({
         <InputField value={trainingTime} onChange={onChangeTrainingTime} />
 
         <ButtonContainer>
-          <PurpleButton onPress={toHomeScreen} text="Submit" />
+          <PurpleButton onPress={toSubmissionScreen} text="Submit" />
           <GrayButton onPress={toggleDialogue} text="Quit" />
         </ButtonContainer>
       </ScreenContainer>
