@@ -7,8 +7,12 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { AuthContextProvider } from './src/screens/auth/AuthContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
+<<<<<<< HEAD
 import ProfileScreen from './src/screens/profile/ProfileScreen';
 import HomeScreen from './src/screens/home/HomeScreen';
+=======
+import CheckInSurveyScreen from './src/screens/home/CheckInSurvey';
+>>>>>>> c56da75 (Check In Survey WIP)
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources
@@ -62,7 +66,11 @@ export default function App() {
     <View style={styles.container} onLayout={onLayoutRootView}>
       <AuthContextProvider>
         {/* <AppNavigator /> */}
+<<<<<<< HEAD
         <HomeScreen />
+=======
+        <CheckInSurveyScreen />
+>>>>>>> c56da75 (Check In Survey WIP)
       </AuthContextProvider>
     </View>
   ) : null;
