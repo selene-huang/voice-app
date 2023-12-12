@@ -101,3 +101,15 @@ export function BackButton({ navigation, onPress }: BackButtonProps) {
     </BackButtonContainer>
   );
 }
+
+export function QuitButton({ onPress }: BackButtonProps) {
+  return (
+    <BackButtonContainer>
+      <BackButtonBase onPress={onPress}>
+        <BodyText>
+          <Icon name="left" size={15} color={Colors.cream} /> Quit
+        </BodyText>
+      </BackButtonBase>
+    </BackButtonContainer>
+  );
+}

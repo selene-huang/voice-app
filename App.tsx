@@ -8,8 +8,6 @@ import { AuthContextProvider } from './src/screens/auth/AuthContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
 import CheckInSurveyScreen from './src/screens/home/CheckInSurveyScreen';
-import CheckInSurveySubmittedScreen from './src/screens/home/CheckInSurveySubmittedScreen';
-import ReportSubmittedScreen from './src/screens/home/ReportSubmittedScreen';
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources
@@ -63,8 +61,7 @@ export default function App() {
     <View style={styles.container} onLayout={onLayoutRootView}>
       <AuthContextProvider>
         {/* <AppNavigator /> */}
-        <CheckInSurveySubmittedScreen />
-        {/* <ReportSubmittedScreen /> */}
+        <CheckInSurveyScreen />
       </AuthContextProvider>
     </View>
   ) : null;
