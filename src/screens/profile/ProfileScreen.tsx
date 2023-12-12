@@ -80,11 +80,16 @@ export default function ProfileScreen({
           </H1Heading>
         </HeadingContainer>
 
-        <BodyText>Preferred Name</BodyText>
-        <InputField value={name} onChange={onChangeName} editable={editing} />
-
-        <BodyText>Voice Goals</BodyText>
         <InputField
+          label="Preferred Name"
+          value={name}
+          onChange={onChangeName}
+          editable={editing}
+        />
+
+        {/* TODO: replace with dropdown */}
+        <InputField
+          label="Voice Goals"
           value={voiceGoals}
           onChange={onChangeVoiceGoals}
           editable={editing}

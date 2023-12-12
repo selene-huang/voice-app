@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   SafeArea,
-  StartContainer,
   ButtonContainer,
   ScreenContainer,
   HeadingContainer,
@@ -10,7 +9,6 @@ import {
   BodyText,
   CenterText,
   H1Heading,
-  Title,
   YellowText,
 } from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
@@ -21,13 +19,13 @@ export default function HomeScreen({
   navigation,
 }: TrainingStackScreenProps<'Home'>) {
   const toEarTraining = () => {
+    navigation.navigate('EarTraining');
+  };
+  const toVocalTraining = () => {
     // TODO
   };
-  const toVoiceTraining = () => {
-    // TODO
-  };
-  const toVocalPractice = () => {
-    // TODO
+  const toVoicePractice = () => {
+    navigation.navigate('VoicePractice');
   };
   const toProfile = () => {
     navigation.navigate('Profile');
@@ -56,14 +54,14 @@ export default function HomeScreen({
           <HomeButton
             color="green"
             icon="fitness-center"
-            text="Voice Training"
-            onPress={toVoiceTraining}
+            text="Vocal Training"
+            onPress={toVocalTraining}
           />
           <HomeButton
             color="lightGreen"
             icon="mic"
-            text="Vocal Practice"
-            onPress={toVocalPractice}
+            text="Voice Practice"
+            onPress={toVoicePractice}
           />
           <HomeButton
             color="yellow"

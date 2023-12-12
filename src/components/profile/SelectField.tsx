@@ -13,6 +13,7 @@ const SelectBase = styled.TouchableOpacity`
   margin-top: 23px;
   margin-bottom: 11px;
   border-radius: 7px;
+  width: 265px;
   background-color: ${Colors.darkGray};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
