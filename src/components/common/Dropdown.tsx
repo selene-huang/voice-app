@@ -1,6 +1,5 @@
-import React, { Dispatch, useState } from 'react';
-import { TextInput } from 'react-native';
-import { KeyboardTypeOptions, StyleSheet } from 'react-native';
+import React, { Dispatch } from 'react';
+import { StyleSheet } from 'react-native';
 import Colors from '../../../assets/Colors';
 import { BodyText } from '../../../assets/Fonts';
 import DropDownPicker from 'react-native-dropdown-picker';

@@ -8,7 +8,6 @@ import {
 } from '../../components/common/Containers';
 import { BodyText, H1Heading } from '../../../assets/Fonts';
 import { GrayButton, PurpleButton } from '../../components/common/Buttons';
-import InputField from '../../components/common/InputField';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';

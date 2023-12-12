@@ -5,7 +5,7 @@ import {
   SafeArea,
   ButtonContainer,
 } from '../../components/common/Containers';
-import { BodyText, H1Heading } from '../../../assets/Fonts';
+import { H1Heading } from '../../../assets/Fonts';
 import { BackButton, PurpleButton } from '../../components/common/Buttons';
 import InputField from '../../components/common/InputField';
 import { AuthStackScreenProps } from '../../navigation/types';
