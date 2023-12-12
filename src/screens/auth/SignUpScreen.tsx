@@ -15,20 +15,18 @@ export default function SignUpScreen({
   navigation,
 }: AuthStackScreenProps<'SignUp'>) {
   const [email, setEmail] = useState('');
-  // const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const onChangeEmail = (value: string) => setEmail(value);
-  // const onChangeUsername = (value: string) => setUsername(value);
   const onChangePassword = (value: string) => setPassword(value);
   const onChangeConfirmPassword = (value: string) => setConfirmPassword(value);
 
   const { dispatch } = useAuthContext();
 
   const submitUserInfo = () => {
-    // TODO: check that username is valid
-    // TODO: validate email & password
+    // TODO: validate email
+    // TODO: password should be automatically validated by Amplify, but we'll need to handle the error
     console.log({ email, password });
     dispatch({
       type: 'SET_USER_SIGN_UP_DATA',

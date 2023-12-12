@@ -9,6 +9,8 @@ import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
 import EarTrainingScreen from './src/screens/exercise/EarTrainingScreen';
 import ExerciseTemplate from './src/screens/exercise/ExerciseTemplate';
+import DemographicsSurveyScreen from './src/screens/auth/DemographicsSurveyScreen';
+import LandingScreen from './src/screens/auth/LandingScreen';
 Amplify.configure(awsExports);
 
 // Keep the splash screen visible while we fetch resources
@@ -62,7 +64,7 @@ export default function App() {
     <View style={styles.container} onLayout={onLayoutRootView}>
       <AuthContextProvider>
         {/* <AppNavigator /> */}
-        <ExerciseTemplate />
+        <LandingScreen />
       </AuthContextProvider>
     </View>
   ) : null;

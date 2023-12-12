@@ -47,6 +47,7 @@ export const BodyText = styled.Text`
   font-size: 16px;
   line-height: 22px;
   color: ${Colors.cream};
+  width: 100%;
 `;
 
 export const BodySubtext = styled.Text`

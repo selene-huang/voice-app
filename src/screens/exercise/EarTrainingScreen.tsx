@@ -26,7 +26,7 @@ export default function EarTrainingScreen({
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>{'Ear Training \nExercises'}</H1Heading>
+          <H1Heading>{'Ear Training Exercises'}</H1Heading>
         </HeadingContainer>
 
         <BodyText>Learn to identify voice qualities.</BodyText>

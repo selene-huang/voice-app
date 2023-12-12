@@ -33,7 +33,7 @@ export default function LandingScreen({
   return (
     <SafeArea>
       <StartContainer>
-        <Title>{'Welcome to\nVoice Training!'}</Title>
+        <Title>{'Welcome to\nVoice Versa!'}</Title>
 
         <ButtonContainer>
           <PurpleButton text="Login" onPress={toLogin} />
