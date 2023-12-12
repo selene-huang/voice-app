@@ -34,7 +34,6 @@ export default function TrainingStackNavigator() {
         component={ReportSubmittedScreen}
       />
       <TrainingStack.Screen name="EarTraining" component={EarTrainingScreen} />
-      <TrainingStack.Screen name="VoiceTraining" component={} />
       <TrainingStack.Screen name="VoicePractice" component={} />
     </TrainingStack.Navigator>
   );

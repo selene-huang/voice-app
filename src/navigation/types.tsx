@@ -21,7 +21,6 @@ export type TrainingStackParamList = {
   Report: undefined;
   ReportSubmitted: undefined;
   EarTraining: undefined;
-  VoiceTraining: undefined;
   VoicePractice: undefined;
 };
 

@@ -1,9 +1,7 @@
-import React, { Component, ReactNode } from 'react';
-import styled from 'styled-components/native';
+import React, { ReactNode } from 'react';
 import Colors from '../../../assets/Colors';
-import { BodySubtext, ButtonText, H2Heading } from '../../../assets/Fonts';
-import { MaterialIcons } from '@expo/vector-icons';
-import { CenteredRow, Row } from '../common/Containers';
+import { BodySubtext, H2Heading } from '../../../assets/Fonts';
+import { Row } from '../common/Containers';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 

@@ -1,10 +1,18 @@
 import React from 'react';
 import {
   SafeArea,
+  StartContainer,
+  ButtonContainer,
   ScreenContainer,
   HeadingContainer,
 } from '../../components/common/Containers';
-import { BodyText, H1Heading } from '../../../assets/Fonts';
+import {
+  BodyText,
+  CenterText,
+  H1Heading,
+  Title,
+  YellowText,
+} from '../../../assets/Fonts';
 import { TrainingStackScreenProps } from '../../navigation/types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native';
