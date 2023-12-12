@@ -5,7 +5,7 @@ import {
   SafeArea,
   ButtonContainer,
 } from '../../components/common/Containers';
-import { BodyText, H1Heading } from '../../../assets/Fonts';
+import { H1Heading } from '../../../assets/Fonts';
 import {
   BackButton,
   GrayButton,
@@ -17,14 +17,21 @@ import { TrainingStackScreenProps } from '../../navigation/types';
 import { SelectField } from '../../components/profile/SelectField';
 import Colors from '../../../assets/Colors';
 import { PopUpModal } from '../../components/common/PopUpModal';
+import Dropdown from '../../components/common/Dropdown';
 
 export default function ProfileScreen({
   navigation,
 }: TrainingStackScreenProps<'Profile'>) {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState('');
-  const [voiceGoals, setVoiceGoals] = useState('');
-  // TODO: fetch name & goals from database
+
+  const [voiceGoalsDropdownOpen, setVoiceGoalsDropdownOpen] = useState(false);
+  const [voiceGoals, setVoiceGoals] = useState(null);
+  const [voiceGoalsDropdownItems, setVoiceGoalsDropdownItems] = useState([
+    { label: 'feminization', value: 'feminization' },
+    { label: 'masculinization', value: 'masculinization' },
+    { label: 'androgynous', value: 'androgynous' },
+  ]);
 
   const [unsavedChangesIsVisible, setUnsavedChangesIsVisible] = useState(false);
   const [deleteAccountIsVisible, setDeleteAccountIsVisible] = useState(false);
@@ -32,8 +39,6 @@ export default function ProfileScreen({
   const [deleteAccountError, setDeleteAccountError] = useState('');
 
   const onChangeName = (value: string) => setName(value);
-  // TODO: change to dropdown
-  const onChangeVoiceGoals = (value: string) => setVoiceGoals(value);
 
   const toggleEdit = () => {
     setEditing(!editing);
@@ -87,12 +92,14 @@ export default function ProfileScreen({
           editable={editing}
         />
 
-        {/* TODO: replace with dropdown */}
-        <InputField
+        <Dropdown
           label="Voice Goals"
+          open={voiceGoalsDropdownOpen}
+          setOpen={setVoiceGoalsDropdownOpen}
           value={voiceGoals}
-          onChange={onChangeVoiceGoals}
-          editable={editing}
+          setValue={setVoiceGoals}
+          items={voiceGoalsDropdownItems}
+          setItems={setVoiceGoalsDropdownItems}
         />
 
         <SelectField
