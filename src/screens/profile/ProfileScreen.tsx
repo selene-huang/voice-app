@@ -76,7 +76,7 @@ export default function ProfileScreen({
       <ScreenContainer>
         <HeadingContainer>
           <H1Heading>
-            {editing ? 'Your Profile' : 'Edit Your Profile'}
+            {editing ? 'Edit Your Profile' : 'Your Profile'}
           </H1Heading>
         </HeadingContainer>
 
