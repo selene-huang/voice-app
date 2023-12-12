@@ -26,10 +26,9 @@ export default function Dropdown({
   items,
   setItems,
   width = 275,
-  height = 30,
 }: DropdownProps) {
-  const style = { ...styles.dropdownStyle, width, height };
-  var setWidth = { width, zIndex: 1 };
+  const style = { ...styles.dropdownStyle, width };
+  var setWidth = { width };
 
   return (
     <>
@@ -52,7 +51,6 @@ export default function Dropdown({
 const styles = StyleSheet.create({
   dropdownStyle: {
     borderWidth: 2,
-    paddingHorizontal: 12,
     marginTop: 5,
     marginBottom: 11,
     borderRadius: 7,
