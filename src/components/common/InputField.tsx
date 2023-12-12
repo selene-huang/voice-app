@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import { KeyboardTypeOptions, StyleSheet } from 'react-native';
 import Colors from '../../../assets/Colors';
+import { BodyText } from '../../../assets/Fonts';
 
 type InputFieldProps = {
+  label?: string;
   onChange: (text: string) => void;
   value: string;
   secureTextEntry?: boolean;
@@ -15,6 +17,7 @@ type InputFieldProps = {
 };
 
 export default function InputField({
+  label,
   onChange,
   value,
   secureTextEntry = false,
@@ -28,25 +31,29 @@ export default function InputField({
   var style = isActive
     ? { ...styles.isActive, width, height }
     : { ...styles.isInactive, width, height };
+  var setWidth = { width };
 
   return (
-    <TextInput
-      onEndEditing={() => {
-        setIsActive(false);
-      }}
-      onFocus={() => setIsActive(true)}
-      onChangeText={onChange}
-      style={style}
-      value={value}
-      secureTextEntry={secureTextEntry}
-      autoCorrect={false}
-      autoCapitalize="none"
-      keyboardType={keyboardType}
-      returnKeyType="done"
-      editable={editable}
-      multiline={multiline}
-      textAlignVertical="top"
-    />
+    <>
+      {label ? <BodyText style={setWidth}>{label}</BodyText> : null}
+      <TextInput
+        onEndEditing={() => {
+          setIsActive(false);
+        }}
+        onFocus={() => setIsActive(true)}
+        onChangeText={onChange}
+        style={style}
+        value={value}
+        secureTextEntry={secureTextEntry}
+        autoCorrect={false}
+        autoCapitalize="none"
+        keyboardType={keyboardType}
+        returnKeyType="done"
+        editable={editable}
+        multiline={multiline}
+        textAlignVertical="top"
+      />
+    </>
   );
 }
 

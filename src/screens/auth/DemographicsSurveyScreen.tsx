@@ -36,23 +36,34 @@ export default function DemographicsSurveyScreen({
 
       <ScreenContainer>
         <HeadingContainer>
-          <H1Heading>{'Demographics\nSurvey'}</H1Heading>
+          <H1Heading>{'Demographics Survey'}</H1Heading>
         </HeadingContainer>
 
-        <BodyText>Age</BodyText>
-        <InputField value={age} onChange={onChangeAge} keyboardType="numeric" />
+        <InputField
+          label="Age"
+          value={age}
+          onChange={onChangeAge}
+          keyboardType="numeric"
+        />
 
-        <BodyText>Gender</BodyText>
-        <InputField value={gender} onChange={onChangeGender} />
+        <InputField label="Gender" value={gender} onChange={onChangeGender} />
 
-        <BodyText>Region</BodyText>
-        <InputField value={region} onChange={onChangeRegion} />
+        {/* TODO: replace with a dropdown */}
+        <InputField label="Region" value={region} onChange={onChangeRegion} />
 
-        <BodyText>Voice Goals</BodyText>
-        <InputField value={voiceGoals} onChange={onChangeVoiceGoals} />
+        {/* TODO: replace with a dropdown */}
+        <InputField
+          label="Voice Goals"
+          value={voiceGoals}
+          onChange={onChangeVoiceGoals}
+        />
 
-        <BodyText>Time Spent Training</BodyText>
-        <InputField value={trainingTime} onChange={onChangeTrainingTime} />
+        {/* TODO: replace with a dropdown */}
+        <InputField
+          label="Time Spent Training"
+          value={trainingTime}
+          onChange={onChangeTrainingTime}
+        />
 
         <ButtonContainer>
           <PurpleButton onPress={toCollectionPolicy} text="Next" />
