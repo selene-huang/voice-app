@@ -22,7 +22,9 @@ export const HeadingContainer = styled.View`
 
 export const ScreenContainer = styled.View`
   padding-horizontal: 47px;
+  align-items: center;
   min-width: 275px;
+  width: 100%;
 `;
 
 export const ButtonContainer = styled.View`
